@@ -1,0 +1,1777 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Luciano | Advocacia Trabalhista Especializada</title>
+    <meta name="description" content="Advogado trabalhista especializado na defesa dos direitos do trabalhador. Atendimento humanizado, estratégia personalizada e compromisso com resultados. Consulta gratuita.">
+    <meta name="keywords" content="advogado trabalhista, direitos trabalhistas, rescisão indireta, horas extras, vínculo empregatício, assédio moral, advocacia trabalhista">
+    <link rel="canonical" href="https://drlucianoadvocacia.com.br">
+    <meta property="og:title" content="Dr. Luciano | Advocacia Trabalhista Especializada">
+    <meta property="og:description" content="Defesa especializada dos direitos do trabalhador. Atendimento humanizado e resultados comprovados.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+      * { font-family: 'Inter', sans-serif; }
+      html { scroll-behavior: smooth; }
+      .gradient-text {
+          background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #1e293b 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+      .hero-gradient {
+          background: radial-gradient(ellipse at 30% 0%, rgba(99,102,241,0.06) 0%, transparent 50%),
+                      radial-gradient(ellipse at 70% 100%, rgba(99,102,241,0.04) 0%, transparent 50%),
+                      #fafafa;
+      }
+      .card-hover {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .card-hover:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      }
+      .pulse-cta {
+          animation: pulse-shadow 2.5s infinite;
+      }
+      @keyframes pulse-shadow {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.3); }
+          50% { box-shadow: 0 0 0 12px rgba(99,102,241,0); }
+      }
+      .marquee-track {
+          display: flex;
+          animation: marquee 40s linear infinite;
+          width: max-content;
+      }
+      @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+      }
+      .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .line-accent {
+          position: relative;
+      }
+      .line-accent::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background: #6366f1;
+          border-radius: 2px;
+      }
+      .testimonial-card {
+          backdrop-filter: blur(10px);
+      }
+      .service-number {
+          font-variant-numeric: tabular-nums;
+      }
+      .nav-blur {
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+      }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+      .accordion-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .accordion-content.open {
+          max-height: 500px;
+      }
+      .accordion-icon {
+          transition: transform 0.3s ease;
+      }
+      .accordion-icon.rotated {
+          transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-slate-800 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-white/80 border-b border-slate-100/80" id="navbar" style="border-bottom-color: rgba(241, 245, 249, 0.8);">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-semibold text-sm tracking-tight">
+              DL
+            </span>
+          </div>
+          <span class="font-semibold text-base tracking-tight text-slate-900">
+            Dr. Luciano
+          </span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#servicos" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+            Serviços
+          </a>
+          <a href="#diferenciais" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+            Diferenciais
+          </a>
+          <a href="#depoimentos" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+            Depoimentos
+          </a>
+          <a href="#faq" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+            Dúvidas
+          </a>
+          <a href="#blog" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+            Blog
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista." class="hidden sm:inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all">
+            Consulta Gratuita
+            <iconify-icon icon="solar:arrow-right-linear" width="16" style="stroke-width:1.5"></iconify-icon>
+          </a>
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-slate-900">
+            <iconify-icon icon="solar:hamburger-menu-linear" width="22" style="stroke-width:1.5"></iconify-icon>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 nav-blur">
+        <div class="px-6 py-4 flex flex-col gap-3">
+          <a href="#servicos" class="text-sm text-slate-600 py-2">Serviços</a>
+          <a href="#diferenciais" class="text-sm text-slate-600 py-2">
+            Diferenciais
+          </a>
+          <a href="#depoimentos" class="text-sm text-slate-600 py-2">
+            Depoimentos
+          </a>
+          <a href="#faq" class="text-sm text-slate-600 py-2">Dúvidas</a>
+          <a href="#blog" class="text-sm text-slate-600 py-2">Blog</a>
+          <a href="https://wa.me/5500000000000" class="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg mt-2">
+            Consulta Gratuita
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex pt-20 items-center">
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="fade-in visible">
+            <div class="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+              <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+              Especialista em Rescisão Indireta
+            </div>
+            <h1 class="sm:text-5xl lg:text-6xl leading-tight text-4xl font-semibold text-slate-900 tracking-tight mb-6">Seus direitos<br> <span class="text-indigo-600">trabalhistas</span> <br> simplificados.</h1>
+            <p class="leading-relaxed text-lg text-slate-500 max-w-lg mb-8">Cada cliente é único e seu caso é nosso compromisso. Defesa especializada com atendimento humanizado e resultados comprovados.</p>
+            <div class="flex flex-col sm:flex-row gap-3 mb-10">
+              <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista." class="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-7 py-3.5 rounded-xl transition-all text-sm">
+                <iconify-icon icon="solar:chat-round-dots-linear" width="18" style="stroke-width:1.5"></iconify-icon>
+                Falar com o Advogado
+              </a>
+              <a href="#servicos" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-medium px-7 py-3.5 rounded-xl border border-slate-200 transition-all text-sm">
+                Conhecer Serviços
+                <iconify-icon icon="solar:arrow-down-linear" width="16" style="stroke-width:1.5"></iconify-icon>
+              </a>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="flex items-center gap-1.5">
+                <div class="flex -space-x-2">
+                  <div class="w-8 h-8 rounded-full bg-indigo-100 border-2 border-white flex items-center justify-center text-xs font-medium text-indigo-700">
+                    J
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-xs font-medium text-amber-700">
+                    A
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-xs font-medium text-emerald-700">
+                    M
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-rose-100 border-2 border-white flex items-center justify-center text-xs font-medium text-rose-700">
+                    C
+                  </div>
+                </div>
+                <div class="ml-2">
+                  <div class="flex items-center gap-0.5">
+                    <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b" class=""></iconify-icon>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-0.5">5/5 em avaliações</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fade-in hidden lg:block visible">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-indigo-100/60 to-slate-100/60 rounded-3xl transform rotate-2"></div>
+              <div class="relative bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm">
+                <div class="space-y-5">
+                  <div class="flex items-center gap-3 pb-5 border-b border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center">
+                      <span class="text-white font-semibold text-lg tracking-tight">
+                        DL
+                      </span>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-sm text-slate-900">
+                        Dr. Luciano
+                      </h3>
+                      <p class="text-xs text-slate-400">
+                        Advocacia Trabalhista
+                      </p>
+                    </div>
+                    <div class="ml-auto">
+                      <span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-600 text-xs font-medium px-2.5 py-1 rounded-full">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                        Online
+                      </span>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                      <iconify-icon icon="solar:shield-check-linear" width="20" class="text-indigo-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                      <div class="">
+                        <p class="text-xs font-medium text-slate-700">
+                          Vínculo Empregatício
+                        </p>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                          Registro em carteira e regularização
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                      <iconify-icon icon="solar:wallet-money-linear" width="20" class="text-indigo-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                      <div class="">
+                        <p class="text-xs font-medium text-slate-700">
+                          Verbas Rescisórias
+                        </p>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                          FGTS, férias, 13º e multas
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                      <iconify-icon icon="solar:clock-circle-linear" width="20" class="text-indigo-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                      <div class="">
+                        <p class="text-xs font-medium text-slate-700">
+                          Horas Extras
+                        </p>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                          Jornada, intervalos e adicional noturno
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-indigo-50 rounded-xl border border-indigo-100">
+                      <iconify-icon icon="solar:heart-pulse-linear" width="20" class="text-indigo-600 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                      <div class="">
+                        <p class="text-xs font-medium text-indigo-700">
+                          Danos e Indenizações
+                        </p>
+                        <p class="text-xs text-indigo-400 mt-0.5">
+                          Moral, material, estético e existencial
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-3">
+                    <div class="flex items-center justify-between text-xs text-slate-400">
+                      <span>+9 áreas de atuação</span>
+                      <span class="flex items-center gap-1">
+                        <iconify-icon icon="solar:verified-check-bold" width="14" style="color:#6366f1"></iconify-icon>
+                        OAB Verificado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="border-y border-slate-100 bg-white py-6 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-center justify-center gap-8 md:gap-16 flex-wrap">
+          <div class="flex items-center gap-2 text-slate-400">
+            <iconify-icon icon="solar:shield-check-linear" width="20" style="stroke-width:1.5"></iconify-icon>
+            <span class="text-xs font-medium">OAB Regular</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-400">
+            <iconify-icon icon="solar:lock-linear" width="20" style="stroke-width:1.5"></iconify-icon>
+            <span class="text-xs font-medium">Sigilo Total</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-400">
+            <iconify-icon icon="solar:chat-round-check-linear" width="20" style="stroke-width:1.5"></iconify-icon>
+            <span class="text-xs font-medium">Primeira Consulta Gratuita</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-400">
+            <iconify-icon icon="solar:star-bold" width="20" style="color:#f59e0b"></iconify-icon>
+            <span class="text-xs font-medium">5/5 Avaliações</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-400">
+            <iconify-icon icon="solar:smartphone-linear" width="20" style="stroke-width:1.5"></iconify-icon>
+            <span class="text-xs font-medium">Atendimento Online</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center fade-in">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+            Por que lutar pelos seus direitos?
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-6">
+            Milhares de trabalhadores
+            <br>
+            perdem direitos todos os dias
+          </h2>
+          <p class="text-base text-slate-500 leading-relaxed mb-12">
+            Falta de registro, pagamentos por fora, horas extras não pagas,
+            demissões abusivas. Se alguma dessas situações parece familiar, você
+            pode ter direitos a receber.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+            <div class="text-3xl font-semibold tracking-tight text-indigo-600 mb-2">
+              72%
+            </div>
+            <p class="text-xs text-slate-500">
+              dos trabalhadores já sofreram alguma irregularidade
+            </p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+            <div class="text-3xl font-semibold tracking-tight text-indigo-600 mb-2">
+              5 anos
+            </div>
+            <p class="text-xs text-slate-500">
+              é o prazo máximo para buscar seus direitos
+            </p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+            <div class="text-3xl font-semibold tracking-tight text-indigo-600 mb-2">
+              40%
+            </div>
+            <p class="text-xs text-slate-500">
+              multa sobre o FGTS em demissão sem justa causa
+            </p>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+            <div class="text-3xl font-semibold tracking-tight text-indigo-600 mb-2">
+              100%
+            </div>
+            <p class="text-xs text-slate-500">
+              comprometimento com cada caso atendido
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-20 md:py-28 bg-slate-50/50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl mb-16 fade-in">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+            Áreas de Atuação
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+            Defesa completa dos
+            <br>
+            seus direitos trabalhistas
+          </h2>
+          <p class="text-base text-slate-500 leading-relaxed">
+            Atuação abrangente em todas as frentes do Direito do Trabalho, com
+            foco na defesa do empregado.
+          </p>
+        </div>
+
+        <div class="card-hover bg-indigo-50 rounded-2xl p-6 md:p-8 border border-indigo-200 mb-6 fade-in">
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <div class="inline-flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-medium px-2.5 py-1 rounded-full mb-4">
+                <iconify-icon icon="solar:star-bold" width="10"></iconify-icon>
+                Área de Maior Atuação
+              </div>
+              <h3 class="text-2xl font-semibold tracking-tight text-slate-900 mb-3">
+                Rescisão Indireta
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                Caso a empresa não trate seus empregados de maneira correta,
+                ignorando suas necessidades e não pagando corretamente seus
+                direitos, os trabalhadores podem pedir à Justiça do Trabalho
+                para terminar seu contrato — recebendo
+                
+                como uma demissão sem justa causa.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="text-xs bg-white text-indigo-700 font-medium px-2.5 py-1 rounded-lg border border-indigo-200">
+                  FGTS + Multa 40%
+                </span>
+                <span class="text-xs bg-white text-indigo-700 font-medium px-2.5 py-1 rounded-lg border border-indigo-200">
+                  Seguro-desemprego
+                </span>
+                <span class="text-xs bg-white text-indigo-700 font-medium px-2.5 py-1 rounded-lg border border-indigo-200">
+                  Aviso prévio
+                </span>
+                <span class="text-xs bg-white text-indigo-700 font-medium px-2.5 py-1 rounded-lg border border-indigo-200">
+                  Férias e 13º
+                </span>
+              </div>
+              <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20saber%20sobre%20rescisão%20indireta." class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all">
+                <iconify-icon icon="solar:chat-round-dots-linear" width="16" style="stroke-width:1.5"></iconify-icon>
+                Verificar meu caso
+              </a>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-white rounded-xl p-4 border border-indigo-100">
+                <div class="flex items-start gap-3">
+                  <iconify-icon icon="solar:danger-triangle-linear" width="18" class="text-amber-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                  <div>
+                    <p class="text-xs font-medium text-slate-800 mb-0.5">
+                      FGTS não recolhido
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Falta grave do empregador
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-indigo-100">
+                <div class="flex items-start gap-3">
+                  <iconify-icon icon="solar:danger-triangle-linear" width="18" class="text-amber-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                  <div>
+                    <p class="text-xs font-medium text-slate-800 mb-0.5">
+                      Atraso de salários
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Descumprimento do contrato
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-indigo-100">
+                <div class="flex items-start gap-3">
+                  <iconify-icon icon="solar:danger-triangle-linear" width="18" class="text-amber-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                  <div>
+                    <p class="text-xs font-medium text-slate-800 mb-0.5">
+                      Assédio moral
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Ambiente de trabalho hostil
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-indigo-100">
+                <div class="flex items-start gap-3">
+                  <iconify-icon icon="solar:danger-triangle-linear" width="18" class="text-amber-500 mt-0.5 flex-shrink-0" style="stroke-width:1.5"></iconify-icon>
+                  <div>
+                    <p class="text-xs font-medium text-slate-800 mb-0.5">
+                      Descumprimento de obrigações
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Não pagamento de direitos
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 fade-in">
+          <!-- Service 1 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
+                <iconify-icon icon="solar:document-add-linear" width="20" class="text-indigo-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                01
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Vínculo de Emprego
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Reconhecimento de vínculo para trabalhadores sem carteira
+              assinada, freelancers fixos e autônomos fraudados.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Carteira assinada
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Freelancer fixo
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Regularização
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                <iconify-icon icon="solar:wallet-money-linear" width="20" class="text-emerald-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                02
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Remuneração e Comissões
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Regularização de pagamentos por fora, equiparação salarial e
+              combate a descontos indevidos no salário.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Salário por fora
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Equiparação
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Descontos
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="card-hover bg-indigo-600 rounded-2xl p-6 border border-indigo-600 group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+            <div class="relative">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                  <iconify-icon icon="solar:logout-2-linear" width="20" class="text-white" style="stroke-width:1.5"></iconify-icon>
+                </div>
+                <span class="text-xs font-medium text-white/60 service-number">
+                  03
+                </span>
+                <span class="ml-auto inline-flex items-center gap-1 bg-white/20 text-white text-xs font-medium px-2 py-0.5 rounded-full">
+                  <iconify-icon icon="solar:star-bold" width="10"></iconify-icon>
+                  Destaque
+                </span>
+              </div>
+              <h3 class="font-semibold text-base tracking-tight text-white mb-2">
+                Rescisão Indireta
+              </h3>
+              <p class="text-sm text-white/70 leading-relaxed mb-4">
+                Quando o empregador comete faltas graves — FGTS não recolhido,
+                salários atrasados, assédio — você pode "demitir o patrão" e
+                receber todas as verbas como demissão sem justa causa.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-xs bg-white/15 text-white/90 px-2 py-1 rounded-md">
+                  FGTS + 40%
+                </span>
+                <span class="text-xs bg-white/15 text-white/90 px-2 py-1 rounded-md">
+                  Seguro-desemprego
+                </span>
+                <span class="text-xs bg-white/15 text-white/90 px-2 py-1 rounded-md">
+                  Verbas integrais
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                <iconify-icon icon="solar:clock-circle-linear" width="20" class="text-blue-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                04
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Jornada e Horas Extras
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Cobrança de horas extras, intervalos intrajornada e interjornada
+              não concedidos e adicional noturno.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Horas extras
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Intervalos
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Adicional noturno
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center group-hover:bg-violet-100 transition-colors">
+                <iconify-icon icon="solar:user-check-linear" width="20" class="text-violet-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                05
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Funções e Atribuições
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Desvio e acúmulo de função quando o trabalhador exerce tarefas
+              diferentes ou acumuladas sem a devida compensação.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Desvio de função
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Acúmulo
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
+                <iconify-icon icon="solar:heart-pulse-linear" width="20" class="text-rose-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                06
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Saúde e Segurança
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Adicionais de insalubridade e periculosidade, acidentes de
+              trabalho e doenças ocupacionais como LER e Burnout.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Insalubridade
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Periculosidade
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Acidente
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 7 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center group-hover:bg-orange-100 transition-colors">
+                <iconify-icon icon="solar:shield-warning-linear" width="20" class="text-orange-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                07
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Danos e Indenizações
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Dano moral, material, estético e existencial. Combate ao assédio,
+              humilhações e discriminação no ambiente de trabalho.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Assédio moral
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Discriminação
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Dano estético
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 8 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center group-hover:bg-teal-100 transition-colors">
+                <iconify-icon icon="solar:users-group-rounded-linear" width="20" class="text-teal-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                08
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Convenções Coletivas
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Análise aprofundada das convenções sindicais da sua categoria para
+              aplicar a norma mais favorável ao trabalhador.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Sindicatos
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Pisos salariais
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Adicionais
+              </span>
+            </div>
+          </div>
+
+          <!-- Service 9 -->
+          <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200/80 group">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-pink-50 flex items-center justify-center group-hover:bg-pink-100 transition-colors">
+                <iconify-icon icon="solar:home-smile-linear" width="20" class="text-pink-600" style="stroke-width:1.5"></iconify-icon>
+              </div>
+              <span class="text-xs font-medium text-slate-400 service-number">
+                09
+              </span>
+            </div>
+            <h3 class="font-semibold text-base tracking-tight text-slate-900 mb-2">
+              Domésticos e Cuidadores
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">
+              Atuação especializada nos direitos de empregadas domésticas e
+              cuidadoras de idosos conforme a PEC das Domésticas.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Domésticas
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                Cuidadores
+              </span>
+              <span class="text-xs bg-slate-50 text-slate-500 px-2 py-1 rounded-md">
+                PEC
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Differentials Section -->
+    <section id="diferenciais" class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="fade-in">
+            <span class="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+              Diferenciais
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-6">
+              Por que escolher o
+              <br>
+              Dr. Luciano?
+            </h2>
+            <p class="text-base text-slate-500 leading-relaxed mb-10">
+              Mais do que representar, o objetivo é empoderar cada cliente com
+              conhecimento sobre seus direitos e conduzir cada caso com total
+              dedicação.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:book-minimalistic-linear" width="20" class="text-indigo-600" style="stroke-width:1.5"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="font-medium text-sm text-slate-900 mb-1">
+                    Abordagem Educativa
+                  </h3>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Explicação clara de cada etapa e direito envolvido. Você
+                    entende o que está acontecendo no seu caso a todo momento.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:target-linear" width="20" class="text-indigo-600" style="stroke-width:1.5"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="font-medium text-sm text-slate-900 mb-1">
+                    Estratégia Personalizada
+                  </h3>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Análise caso a caso para identificar nulidades contratuais e
+                    oportunidades específicas que maximizem seus direitos.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:hand-heart-linear" width="20" class="text-indigo-600" style="stroke-width:1.5"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="font-medium text-sm text-slate-900 mb-1">
+                    Atendimento Humanizado
+                  </h3>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Disponibilidade, solicitude e empatia. Cada cliente é
+                    tratado com respeito e atenção que merece.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:smartphone-linear" width="20" class="text-indigo-600" style="stroke-width:1.5"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="font-medium text-sm text-slate-900 mb-1">
+                    Provas Digitais
+                  </h3>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Orientação sobre como utilizar mensagens de WhatsApp,
+                    e-mails e prints como prova de subordinação e
+                    irregularidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in">
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl"></div>
+              <div class="relative">
+                <div class="inline-flex items-center gap-2 bg-white/10 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full mb-8">
+                  <iconify-icon icon="solar:chat-round-dots-linear" width="14" style="stroke-width:1.5"></iconify-icon>
+                  Como funciona
+                </div>
+                <h3 class="text-2xl font-semibold tracking-tight mb-8">
+                  Do contato à resolução
+                </h3>
+                <div class="space-y-6">
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-semibold">
+                        1
+                      </div>
+                      <div class="w-0.5 h-full bg-white/10 mt-2"></div>
+                    </div>
+                    <div class="pb-6">
+                      <h4 class="font-medium text-sm mb-1">Contato Inicial</h4>
+                      <p class="text-sm text-white/50">
+                        Entre em contato pelo WhatsApp ou formulário. Atendemos
+                        online para sua comodidade.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-semibold">
+                        2
+                      </div>
+                      <div class="w-0.5 h-full bg-white/10 mt-2"></div>
+                    </div>
+                    <div class="pb-6">
+                      <h4 class="font-medium text-sm mb-1">Análise do Caso</h4>
+                      <p class="text-sm text-white/50">
+                        Consulta gratuita para entender sua situação, analisar
+                        documentos e identificar todos os direitos envolvidos.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-semibold">
+                        3
+                      </div>
+                      <div class="w-0.5 h-full bg-white/10 mt-2"></div>
+                    </div>
+                    <div class="pb-6">
+                      <h4 class="font-medium text-sm mb-1">
+                        Estratégia Jurídica
+                      </h4>
+                      <p class="text-sm text-white/50">
+                        Definição da melhor estratégia com transparência total
+                        sobre prazos, riscos e expectativas.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center">
+                        <iconify-icon icon="solar:check-read-linear" width="14" style="stroke-width:1.5"></iconify-icon>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-sm mb-1">Resolução</h4>
+                      <p class="text-sm text-white/50">
+                        Acompanhamento constante até a resolução definitiva,
+                        seja por acordo ou decisão judicial.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="py-20 md:py-28 bg-slate-50/50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+            Depoimentos
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+            O que nossos clientes dizem
+          </h2>
+          <div class="flex items-center justify-center gap-1 mb-2">
+            <iconify-icon icon="solar:star-bold" width="18" style="color:#f59e0b"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="18" style="color:#f59e0b"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="18" style="color:#f59e0b"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="18" style="color:#f59e0b"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" width="18" style="color:#f59e0b"></iconify-icon>
+          </div>
+          <p class="text-sm text-slate-400">
+            Nota 5/5 com base em avaliações reais
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-in">
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+            <div class="flex items-center gap-0.5 mb-4">
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              "Gratidão pelo carinho e pela competência em todos os serviços
+              prestados. Você cuidou do meu processo com muita honestidade e
+              profissionalismo e me aconselhou em todos os momentos."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center">
+                <span class="text-xs font-semibold text-indigo-700">JP</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-900">Junior P.</p>
+                <p class="text-xs text-slate-400">Cliente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+            <div class="flex items-center gap-0.5 mb-4">
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              "Um ótimo profissional, resolveu minha demanda com excelência!
+              Super recomendo!"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center">
+                <span class="text-xs font-semibold text-amber-700">AL</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-900">Ana Luiza M.</p>
+                <p class="text-xs text-slate-400">Cliente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+            <div class="flex items-center gap-0.5 mb-4">
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              "Luciano é um profissional extremamente solícito. Sempre
+              disponível para esclarecer minhas dúvidas. Recomendo de olhos
+              fechados."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center">
+                <span class="text-xs font-semibold text-emerald-700">CN</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-900">Cibelle Nunes</p>
+                <p class="text-xs text-slate-400">Cliente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+            <div class="flex items-center gap-0.5 mb-4">
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              "Fiquei muito satisfeito. Recomendo muito o serviço."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-rose-100 flex items-center justify-center">
+                <span class="text-xs font-semibold text-rose-700">ML</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-900">Marcos Lott</p>
+                <p class="text-xs text-slate-400">Cliente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+            <div class="flex items-center gap-0.5 mb-4">
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              "Ótimo advogado! Recomendo a todos."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center">
+                <span class="text-xs font-semibold text-blue-700">AA</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-900">Alan Augusto</p>
+                <p class="text-xs text-slate-400">Cliente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+            <div class="flex items-center gap-0.5 mb-4">
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" width="14" style="color:#f59e0b"></iconify-icon>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              "Muito bom! Me ajudou muito."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-violet-100 flex items-center justify-center">
+                <span class="text-xs font-semibold text-violet-700">YS</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-900">Yasmim S.</p>
+                <p class="text-xs text-slate-400">Cliente</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional mini testimonials -->
+        <div class="mt-6 flex flex-wrap gap-3 justify-center fade-in">
+          <div class="inline-flex items-center gap-2 bg-white border border-slate-200/80 rounded-full px-4 py-2">
+            <div class="w-6 h-6 rounded-full bg-pink-100 flex items-center justify-center">
+              <span class="text-xs font-semibold text-pink-700" style="font-size:10px">
+                ES
+              </span>
+            </div>
+            <span class="text-xs text-slate-600">
+              "Excelente!" — Eduarda Seara
+            </span>
+            <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+          </div>
+          <div class="inline-flex items-center gap-2 bg-white border border-slate-200/80 rounded-full px-4 py-2">
+            <div class="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center">
+              <span class="text-xs font-semibold text-teal-700" style="font-size:10px">
+                JL
+              </span>
+            </div>
+            <span class="text-xs text-slate-600">
+              "Admirável!" — Júlia F. Lins
+            </span>
+            <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+          </div>
+          <div class="inline-flex items-center gap-2 bg-white border border-slate-200/80 rounded-full px-4 py-2">
+            <div class="w-6 h-6 rounded-full bg-cyan-100 flex items-center justify-center">
+              <span class="text-xs font-semibold text-cyan-700" style="font-size:10px">
+                MC
+              </span>
+            </div>
+            <span class="text-xs text-slate-600">
+              "Excelente profissional!" — Marina Calixto
+            </span>
+            <iconify-icon icon="solar:star-bold" width="12" style="color:#f59e0b"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 md:py-28 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+            Perguntas Frequentes
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+            Tire suas dúvidas
+          </h2>
+          <p class="text-base text-slate-500">
+            Respostas para as perguntas mais comuns sobre direitos trabalhistas.
+          </p>
+        </div>
+
+        <div class="space-y-3 fade-in">
+          <!-- FAQ 1 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                Trabalho sem carteira assinada. Tenho algum direito?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                Sim! Se você trabalha com pessoalidade, habitualidade,
+                subordinação e recebe remuneração, existe vínculo empregatício
+                independente de registro. Podemos entrar na Justiça para
+                reconhecer esse vínculo e garantir todos os seus direitos: FGTS,
+                férias, 13º, INSS e verbas rescisórias.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                Recebo parte do salário "por fora". Isso é irregular?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                Sim, é totalmente irregular. Todo valor pago em razão do
+                trabalho deve constar no contracheque e integrar o cálculo de
+                FGTS, férias, 13º salário e recolhimentos do INSS. Podemos
+                comprovar esses pagamentos e buscar a diferença de todos os
+                direitos afetados.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                Fui demitido por justa causa injusta. O que posso fazer?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                Se a justa causa foi aplicada sem motivo real, de forma
+                desproporcional ou sem observar os requisitos legais, podemos
+                pedir sua reversão na Justiça. Com a reversão, você passa a ter
+                direito ao aviso prévio, multa de 40% do FGTS, seguro-desemprego
+                e todas as verbas rescisórias integrais.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                Qual o prazo para entrar com uma ação trabalhista?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                Você tem até 2 anos após o desligamento da empresa para
+                ingressar com a ação, podendo cobrar direitos dos últimos 5 anos
+                de trabalho. Por isso, é fundamental não deixar para a última
+                hora. Quanto antes procurar orientação, melhor.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                O que é rescisão indireta?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                É quando o empregador comete faltas graves — como não recolher
+                FGTS, atrasar salários, praticar assédio ou descumprir
+                obrigações do contrato. Nesse caso, o empregado pode "demitir o
+                patrão" e receber todas as verbas como se tivesse sido demitido
+                sem justa causa, incluindo multa de 40%, seguro-desemprego e
+                aviso prévio.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                Sofro assédio moral no trabalho. Tenho direito a indenização?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                Sim! Humilhações, perseguições, tratamento rigoroso excessivo,
+                isolamento e outras condutas abusivas configuram assédio moral e
+                geram direito a indenização por dano moral. Além disso, essa
+                situação pode embasar um pedido de rescisão indireta.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="border border-slate-200/80 rounded-2xl overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors">
+              <span class="font-medium text-sm text-slate-900 pr-4">
+                A consulta inicial é realmente gratuita?
+              </span>
+              <iconify-icon icon="solar:add-circle-linear" width="20" class="text-slate-400 flex-shrink-0 accordion-icon" style="stroke-width:1.5"></iconify-icon>
+            </button>
+            <div class="accordion-content">
+              <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
+                Sim, a primeira consulta é totalmente gratuita e sem
+                compromisso. Nela, analisamos sua situação, identificamos
+                possíveis direitos e explicamos como seria a atuação no seu
+                caso, com total transparência sobre prazos, custos e
+                expectativas.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 md:py-28 bg-slate-50/50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-2xl mb-16 fade-in">
+          <span class="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+            Blog Informativo
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+            Conheça seus direitos
+            <br>
+            em detalhes
+          </h2>
+          <p class="text-base text-slate-500 leading-relaxed">
+            Artigos completos para você entender cada aspecto dos seus direitos
+            trabalhistas. Conhecimento é o primeiro passo para a defesa.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-in">
+          <!-- Blog 1 -->
+          <a href="/bares-e-restaurantes" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-amber-100 to-orange-50 flex items-center justify-center">
+              <iconify-icon icon="solar:cup-hot-linear" width="48" class="text-amber-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Funcionários de Bares e Restaurantes
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Entenda as particularidades do setor e como garantir seus
+                direitos.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Gorjetas
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Freelancer
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Insalubridade
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 2 -->
+          <a href="/convencao-garcons" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-teal-100 to-emerald-50 flex items-center justify-center">
+              <iconify-icon icon="solar:clipboard-list-linear" width="48" class="text-teal-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Direitos Convencionais em Bares e Restaurantes
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Funcionários desse segmento possuem alguns direitos
+                convencionais, descubra quais são eles.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Piso salarial
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Hora extra
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Adicional noturno
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 3 - Rescisão (Highlighted) -->
+          <a href="/recisao-contrato-trabalho" class="card-hover bg-white rounded-2xl border-2 border-indigo-200 overflow-hidden group relative">
+            <div class="absolute top-3 right-3 z-10">
+              <span class="inline-flex items-center gap-1 bg-indigo-600 text-white text-xs font-medium px-2 py-0.5 rounded-full">
+                <iconify-icon icon="solar:star-bold" width="10"></iconify-icon>
+                Destaque
+              </span>
+            </div>
+            <div class="h-40 bg-gradient-to-br from-indigo-100 to-violet-50 flex items-center justify-center">
+              <iconify-icon icon="solar:document-text-linear" width="48" class="text-indigo-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Rescisão de Contrato de Trabalho
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                O que você deve receber na demissão e quando ocorre a rescisão
+                indireta.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-indigo-50 text-indigo-500 px-2 py-0.5 rounded">
+                  Rescisão indireta
+                </span>
+                <span class="text-xs bg-indigo-50 text-indigo-500 px-2 py-0.5 rounded">
+                  Justa causa
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Anulação
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 4 -->
+          <a href="/salario-por-fora" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-emerald-100 to-green-50 flex items-center justify-center">
+              <iconify-icon icon="solar:wallet-money-linear" width="48" class="text-emerald-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Salário por Fora
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Gorjetas, comissões e recebimentos extra-folha. Saiba como
+                receber seus direitos.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Comissões
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Gorjetas
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Extra-folha
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 5 -->
+          <a href="/horas-remuneracao" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-blue-100 to-sky-50 flex items-center justify-center">
+              <iconify-icon icon="solar:clock-circle-linear" width="48" class="text-blue-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Horas e Remuneração
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Saiba como ter uma remuneração justa com base nas horas de
+                trabalho.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Horas extras
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Intervalo
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Adicional noturno
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 6 -->
+          <a href="/danos-discriminacao" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-rose-100 to-pink-50 flex items-center justify-center">
+              <iconify-icon icon="solar:shield-warning-linear" width="48" class="text-rose-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Danos e Discriminação
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Entenda as situações que podem gerar indenização.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Dano moral
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Assédio
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Discriminação
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 7 -->
+          <a href="/funcoes" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-violet-100 to-purple-50 flex items-center justify-center">
+              <iconify-icon icon="solar:user-check-linear" width="48" class="text-violet-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Funções
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Como a legislação garante a igualdade e justiça salarial com
+                base no serviço prestado.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Desvio
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Acúmulo
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Equiparação
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 8 -->
+          <a href="/condicoes-trabalho" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-orange-100 to-amber-50 flex items-center justify-center">
+              <iconify-icon icon="solar:heart-pulse-linear" width="48" class="text-orange-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Condições de Trabalho
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Conheça as situações que podem aumentar a remuneração com base
+                no serviço prestado.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Insalubridade
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Periculosidade
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Acidente
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 9 -->
+          <a href="/servicos-especiais" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-pink-100 to-rose-50 flex items-center justify-center">
+              <iconify-icon icon="solar:home-smile-linear" width="48" class="text-pink-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Serviços Especiais
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Entenda o que a lei das domésticas e cuidadoras de idosos te
+                assegura.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Domésticas
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Cuidadores
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  PEC
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Blog 10 -->
+          <a href="/vinculo-emprego" class="card-hover bg-white rounded-2xl border border-slate-200/80 overflow-hidden group">
+            <div class="h-40 bg-gradient-to-br from-cyan-100 to-sky-50 flex items-center justify-center">
+              <iconify-icon icon="solar:document-add-linear" width="48" class="text-cyan-500" style="stroke-width:1.5"></iconify-icon>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-sm tracking-tight text-slate-900 mb-1.5 group-hover:text-indigo-600 transition-colors">
+                Vínculo de Emprego
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                Como comprovar para receber seus direitos.
+              </p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Pessoalidade
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Subordinação
+                </span>
+                <span class="text-xs bg-slate-50 text-slate-400 px-2 py-0.5 rounded">
+                  Comprovação
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl"></div>
+      </div>
+      <div class="max-w-3xl mx-auto px-6 text-center relative z-10 fade-in">
+        <div class="inline-flex items-center gap-2 bg-white/10 text-white/70 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+          <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+          Atendimento disponível agora
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
+          Não deixe seus direitos
+          <br>
+          passarem em branco.
+        </h2>
+        <p class="text-lg text-white/50 leading-relaxed mb-10 max-w-xl mx-auto">
+          O prazo para buscar seus direitos é limitado. Entre em contato agora
+          para uma consulta gratuita e descubra o que você pode receber.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista." class="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-8 py-4 rounded-xl transition-all text-sm">
+            <iconify-icon icon="solar:chat-round-dots-linear" width="18" style="stroke-width:1.5"></iconify-icon>
+            Falar pelo WhatsApp
+          </a>
+          <a href="tel:+5500000000000" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-medium px-8 py-4 rounded-xl border border-white/10 transition-all text-sm">
+            <iconify-icon icon="solar:phone-linear" width="18" style="stroke-width:1.5"></iconify-icon>
+            Ligar Agora
+          </a>
+        </div>
+        <p class="text-xs text-white/30 mt-6">
+          Consulta inicial gratuita · Sigilo garantido · Atendimento online
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8 mb-10">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                <span class="text-white font-semibold text-sm tracking-tight">
+                  DL
+                </span>
+              </div>
+              <span class="font-semibold text-base tracking-tight text-slate-900">
+                Dr. Luciano
+              </span>
+            </div>
+            <p class="text-sm text-slate-400 leading-relaxed max-w-xs">
+              Advocacia Trabalhista Especializada. Defesa dos direitos do
+              trabalhador com atendimento humanizado e resultados comprovados.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-medium text-sm text-slate-900 mb-4">Navegação</h4>
+            <div class="space-y-2.5">
+              <a href="#servicos" class="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                Serviços
+              </a>
+              <a href="#diferenciais" class="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                Diferenciais
+              </a>
+              <a href="#depoimentos" class="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                Depoimentos
+              </a>
+              <a href="#faq" class="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                Dúvidas Frequentes
+              </a>
+              <a href="#blog" class="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                Blog
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-sm text-slate-900 mb-4">Contato</h4>
+            <div class="space-y-2.5">
+              <a href="https://wa.me/5500000000000" class="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                <iconify-icon icon="solar:chat-round-dots-linear" width="16" style="stroke-width:1.5"></iconify-icon>
+                WhatsApp
+              </a>
+              <a href="tel:+5500000000000" class="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                <iconify-icon icon="solar:phone-linear" width="16" style="stroke-width:1.5"></iconify-icon>
+                Telefone
+              </a>
+              <a href="mailto:contato@drlucianoadvocacia.com.br" class="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                <iconify-icon icon="solar:letter-linear" width="16" style="stroke-width:1.5"></iconify-icon>
+                E-mail
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-100 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-xs text-slate-400">
+            © 2025 Dr. Luciano — Advocacia Trabalhista. Todos os direitos
+            reservados.
+          </p>
+          <p class="text-xs text-slate-300">OAB/XX 000.000</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista." class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/25 transition-all hover:scale-105" aria-label="Falar pelo WhatsApp">
+      <iconify-icon icon="solar:chat-round-dots-bold" width="26"></iconify-icon>
+    </a>
+
+    <script>
+      // Mobile menu toggle
+      document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+          const menu = document.getElementById('mobile-menu');
+          menu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+              document.getElementById('mobile-menu').classList.add('hidden');
+          });
+      });
+
+      // Accordion toggle
+      function toggleAccordion(button) {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('.accordion-icon');
+          const isOpen = content.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+          document.querySelectorAll('.accordion-icon').forEach(i => i.classList.remove('rotated'));
+
+          // Toggle current
+          if (!isOpen) {
+              content.classList.add('open');
+              icon.classList.add('rotated');
+          }
+      }
+
+      // Scroll animations
+      const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+              }
+          });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      // Navbar background on scroll
+      window.addEventListener('scroll', () => {
+          const navbar = document.getElementById('navbar');
+          if (window.scrollY > 10) {
+              navbar.style.borderBottomColor = 'rgba(226,232,240,0.8)';
+          } else {
+              navbar.style.borderBottomColor = 'rgba(241,245,249,0.8)';
+          }
+      });
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          "name": "Dr. Luciano - Advocacia Trabalhista Especializada",
+          "description": "Advogado trabalhista especializado na defesa dos direitos do trabalhador. Atendimento humanizado, estratégia personalizada e compromisso com resultados.",
+          "url": "https://drlucianoadvocacia.com.br",
+          "serviceType": "Advocacia Trabalhista",
+          "areaServed": "Brasil",
+          "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "bestRating": "5",
+              "worstRating": "1",
+              "ratingCount": "9"
+          },
+          "priceRange": "Consulta Gratuita"
+      }
+    </script>
+  
+</body></html>
