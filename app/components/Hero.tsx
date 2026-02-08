@@ -21,7 +21,7 @@ export default function Hero() {
               {HERO_CONTENT.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista." className="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-7 py-3.5 rounded-xl transition-all text-sm">
+              <a href="/atendimento" className="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-7 py-3.5 rounded-xl transition-all text-sm">
                 <Icon icon="solar:chat-round-dots-linear" width="18" />
                 {HERO_CONTENT.cta_primary}
               </a>

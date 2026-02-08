@@ -76,7 +76,7 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-3">
           <a
-            href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista."
+            href="/atendimento"
             className="hidden sm:inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all"
           >
             Consulta Gratuita
@@ -133,7 +133,7 @@ export default function Header() {
               Blog
             </a>
             <a
-              href="https://wa.me/5500000000000"
+              href="/atendimento"
               className="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg mt-2"
             >
               Consulta Gratuita

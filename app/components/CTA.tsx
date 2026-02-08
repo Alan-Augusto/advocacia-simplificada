@@ -22,9 +22,9 @@ export default function CTA() {
           para uma consulta gratuita e descubra o que você pode receber.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20consulta%20trabalhista." className="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-8 py-4 rounded-xl transition-all text-sm">
+          <a href="/atendimento" className="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-8 py-4 rounded-xl transition-all text-sm">
             <Icon icon="solar:chat-round-dots-linear" width="18" />
-            Falar pelo WhatsApp
+            Iniciar Atendimento
           </a>
           <a href="tel:+5500000000000" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-medium px-8 py-4 rounded-xl border border-white/10 transition-all text-sm">
             <Icon icon="solar:phone-linear" width="18" />
