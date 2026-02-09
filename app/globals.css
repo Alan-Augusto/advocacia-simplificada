@@ -119,3 +119,57 @@ html { scroll-behavior: smooth; }
 .accordion-icon.rotated {
   transform: rotate(45deg);
 }
+
+/* Compatibility for animate-in classes without plugin */
+.animate-in {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.animate-in.fade-in {
+  opacity: 1; /* Reset the opacity: 0 from the other .fade-in class */
+  animation-name: fadeInKeyframes;
+}
+
+.animate-in.slide-in-from-bottom-2 {
+    animation-name: slideUpKeyframesSmall;
+}
+
+.animate-in.slide-in-from-bottom-4 {
+  animation-name: slideUpKeyframes;
+}
+
+.animate-in.slide-in-from-right-8 {
+  animation-name: slideRightKeyframes;
+}
+
+.animate-in.zoom-in-95 {
+   animation-name: zoomInKeyframes;
+}
+
+@keyframes fadeInKeyframes {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpKeyframes {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpKeyframesSmall {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+@keyframes slideRightKeyframes {
+  from { opacity: 0; transform: translateX(2rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomInKeyframes {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
