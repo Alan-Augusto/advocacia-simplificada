@@ -52,7 +52,7 @@ export default function ChatInterface({
   return (
     <div className="flex-1 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-500">
       {/* Chat Header - Fixo */}
-      <div className="flex-shrink-0 px-2 py-3 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+      <div className="flex-shrink-0 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-${selectedService?.colorClass || 'indigo'}-100 text-${selectedService?.colorClass || 'indigo'}-600 border border-${selectedService?.colorClass || 'indigo'}-200`}>
             <Icon icon={selectedService?.icon || "solar:chat-line-linear"} width="20" />
@@ -75,7 +75,7 @@ export default function ChatInterface({
       </div>
 
       {/* Messages Area - Scrollable */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-6 bg-white scroll-smooth">
+      <div className="flex-1 overflow-y-auto p-4 space-y-6 scroll-smooth">
         {messages.length === 0 && !loading && (
           <div className="text-center py-12 px-4 opacity-50">
             <div className={`w-16 h-16 mx-auto rounded-full bg-${selectedService?.colorClass || 'indigo'}-100 text-${selectedService?.colorClass || 'indigo'}-500 flex items-center justify-center mb-4`}>
@@ -122,7 +122,7 @@ export default function ChatInterface({
       </div>
 
       {/* Input Area or Final Action - Fixo em baixo */}
-      <div className="flex-shrink-0 p-3 sm:p-4 bg-slate-50 border-t border-slate-200">
+      <div className="flex-shrink-0 p-3 sm:p-4 border-t border-slate-200">
         {showWhatsappButton ? (
           <div className="text-center py-2 space-y-3 animate-in fade-in slide-in-from-bottom-4">
             <p className="text-sm text-slate-600 font-medium">

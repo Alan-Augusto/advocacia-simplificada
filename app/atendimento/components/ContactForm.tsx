@@ -18,7 +18,7 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
   };
 
   return (
-    <div className="flex-1 flex flex-col animate-in fade-in slide-in-from-right-8 duration-500 overflow-hidden pb-4 px-2">
+    <div className="flex-1 flex flex-col animate-in fade-in slide-in-from-right-8 duration-500 overflow-hidden py-4 px-3">
       {/* Botão voltar */}
       <button
         type="button"
@@ -87,7 +87,7 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
       </div>
 
       {/* Botão fixo em baixo */}
-      <div className="flex-shrink-0 pt-4 bg-slate-50">
+      <div className="flex-shrink-0 pt-4">
         <button
           type="submit"
           onClick={handleSubmit}
