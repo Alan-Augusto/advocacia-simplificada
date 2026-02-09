@@ -22,8 +22,8 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
   ];
 
   return (
-    <header className="my-2">
-      <h1 className="text-xl font-bold text-slate-900 tracking-tight text-center mb-3">
+    <header className="my-2 md:my-4">
+      <h1 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight text-center mb-3 md:mb-5">
         Advocacia Simplificada
       </h1>
 
@@ -38,24 +38,24 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
           
           return (
             <div key={s.id} className="flex items-center">
-              <div className="flex flex-col items-center gap-1.5">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all ${status === 'completed' || status === 'current'
+              <div className="flex flex-col items-center gap-1.5 md:gap-2">
+                <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all ${status === 'completed' || status === 'current'
                     ? 'bg-indigo-600 border-indigo-600 text-white'
                     : 'bg-white border-slate-300 text-slate-400'
                   }`}>
                   {status === 'completed' ? (
-                    <Icon icon="solar:check-read-linear" width="16" />
+                    <Icon icon="solar:check-read-linear" width="16" className="md:w-5 md:h-5" />
                   ) : (
-                    <span className="text-xs font-bold">{idx + 1}</span>
+                    <span className="text-xs md:text-sm font-bold">{idx + 1}</span>
                   )}
                 </div>
-                <span className={`text-[10px] font-medium ${status === 'current' ? 'text-indigo-600' : 'text-slate-500'
+                <span className={`text-[10px] md:text-xs lg:text-sm font-medium ${status === 'current' ? 'text-indigo-600' : 'text-slate-500'
                   }`}>
                   {s.label}
                 </span>
               </div>
               {idx < steps.length - 1 && (
-                <div className={`w-12 sm:w-16 h-0.5 mx-2 mb-5 transition-all ${isCompleted ? 'bg-indigo-600' : 'bg-slate-200'}`} />
+                <div className={`w-12 sm:w-16 md:w-20 h-0.5 mx-2 mb-5 md:mb-6 transition-all ${isCompleted ? 'bg-indigo-600' : 'bg-slate-200'}`} />
               )}
             </div>
           )

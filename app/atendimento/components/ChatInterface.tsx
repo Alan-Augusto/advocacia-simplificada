@@ -88,10 +88,17 @@ export default function ChatInterface({
         {messages.filter(m => !m.hidden).map((msg, idx) => (
           <div
             key={idx}
-            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} animate-in fade-in slide-in-from-bottom-2 duration-300`}
+            className={`flex items-end gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"} animate-in fade-in slide-in-from-bottom-2 duration-300`}
           >
+            {/* Avatar do Assistente - Desktop */}
+            {msg.role === "assistant" && (
+              <div className="hidden md:flex w-8 h-8 rounded-full items-center justify-center shadow-md bg-indigo-100 text-indigo-600 flex-shrink-0">
+                <Icon icon="mdi:sparkles" width="16" />
+              </div>
+            )}
+            
             <div
-              className={`max-w-[85%] sm:max-w-[75%] rounded-2xl px-5 py-3.5 text-sm sm:text-base leading-relaxed shadow-sm ${msg.role === "user"
+              className={`max-w-[85%] sm:max-w-[75%] md:max-w-[65%] rounded-2xl px-5 py-3.5 text-sm sm:text-base leading-relaxed shadow-sm ${msg.role === "user"
                   ? "bg-indigo-600 text-white rounded-br-none"
                   : "bg-slate-50 border border-slate-200 text-slate-700 rounded-bl-none"
                 }`}
@@ -103,6 +110,13 @@ export default function ChatInterface({
                 </div>
               )}
             </div>
+            
+            {/* Avatar do Usuário - Desktop */}
+            {msg.role === "user" && (
+              <div className="hidden md:flex w-8 h-8 rounded-full flex-shrink-0 items-center justify-center text-white shadow-md bg-slate-400 font-semibold text-xs">
+                {contactInfo.name.charAt(0).toUpperCase()}
+              </div>
+            )}
           </div>
         ))}
 

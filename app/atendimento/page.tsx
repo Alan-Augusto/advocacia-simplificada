@@ -68,10 +68,10 @@ export default function AtendimentoPage() {
           <div className="absolute top-40 -left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="flex-1 w-full max-w-lg  mx-auto flex flex-col z-10 h-full overflow-hidden">
+      <div className="flex-1 w-full max-w-lg md:max-w-3xl lg:max-w-4xl mx-auto flex flex-col z-10 h-full overflow-hidden">
         
         {/* Header fixo */}
-        <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6">
+        <div className="flex-shrink-0 px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8">
           <StepIndicator currentStep={step} />
         </div>
 
