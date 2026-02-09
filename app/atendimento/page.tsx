@@ -21,6 +21,7 @@ export default function AtendimentoPage() {
     loading, 
     loadingText, 
     showWhatsappButton, 
+    chatFinished,
     sendMessage 
   } = useChat(selectedService);
 
@@ -96,6 +97,7 @@ export default function AtendimentoPage() {
               loading={loading}
               loadingText={loadingText}
               showWhatsappButton={showWhatsappButton}
+              chatFinished={chatFinished}
               contactInfo={contactInfo}
               onSendMessage={sendMessage}
               onRestart={handleRestart}

@@ -8,6 +8,7 @@ interface ChatInterfaceProps {
   loading: boolean;
   loadingText: string;
   showWhatsappButton: boolean;
+  chatFinished: boolean;
   contactInfo: ContactInfo;
   onSendMessage: (text: string) => void;
   onRestart: () => void;
@@ -19,6 +20,7 @@ export default function ChatInterface({
   loading,
   loadingText,
   showWhatsappButton,
+  chatFinished,
   contactInfo,
   onSendMessage,
   onRestart
@@ -136,8 +138,15 @@ export default function ChatInterface({
               Continuar no WhatsApp
             </a>
           </div>
+        ) : chatFinished ? (
+          <div className="text-center py-3 animate-in fade-in slide-in-from-bottom-4">
+            <div className="inline-flex items-center gap-2 text-sm text-slate-500">
+              <Icon icon="solar:check-circle-linear" width="20" />
+              <span>Atendimento encerrado</span>
+            </div>
+          </div>
         ) : (
-          <div className="flex gap-2 items-end">
+          <div className="flex gap-2 items-center justify-center animate-in fade-in slide-in-from-bottom-4">
             <div className="relative flex-1">
               <textarea
                 value={input}

@@ -6,16 +6,22 @@ export function useChat(selectedService: Service | null) {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("Digitando...");
   const [showWhatsappButton, setShowWhatsappButton] = useState(false);
+  const [chatFinished, setChatFinished] = useState(false);
 
   const processAIResponse = async (content: string) => {
     setLoading(true);
     let aiContent = content;
-    const finalizeTag = "[FINALIZAR_ATENDIMENTO]";
-    let shouldFinish = false;
+    const leadQuenteTag = "[LEAD_QUENTE]";
+    const leadFrioTag = "[LEAD_FRIO]";
+    let shouldShowWhatsapp = false;
+    let shouldFinishWithoutWhatsapp = false;
 
-    if (aiContent.includes(finalizeTag)) {
-      shouldFinish = true;
-      aiContent = aiContent.replace(finalizeTag, "").trim();
+    if (aiContent.includes(leadQuenteTag)) {
+      shouldShowWhatsapp = true;
+      aiContent = aiContent.replace(leadQuenteTag, "").trim();
+    } else if (aiContent.includes(leadFrioTag)) {
+      shouldFinishWithoutWhatsapp = true;
+      aiContent = aiContent.replace(leadFrioTag, "").trim();
     }
 
     // Calculate delay based on length (e.g., 20ms per char, min 1.5s, max 6s)
@@ -34,8 +40,13 @@ export function useChat(selectedService: Service | null) {
     setMessages((prev) => [...prev, { role: "assistant", content: aiContent }]);
     setLoading(false);
 
-    if (shouldFinish) {
+    if (shouldShowWhatsapp) {
       setShowWhatsappButton(true);
+      setChatFinished(true);
+    } else if (shouldFinishWithoutWhatsapp) {
+      // Chat encerrado sem WhatsApp - lead frio
+      setShowWhatsappButton(false);
+      setChatFinished(true);
     }
   };
 
@@ -79,6 +90,7 @@ export function useChat(selectedService: Service | null) {
     loading,
     loadingText,
     showWhatsappButton,
+    chatFinished,
     sendMessage
   };
 }
