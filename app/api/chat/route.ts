@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
-import { BASE_PROMPT, SERVICE_PROMPTS } from "@/app/data/prompts";
+import { createClient } from "@/lib/supabase/client";
 
 // Initialize Groq client
 const client = new Groq({
@@ -16,12 +16,33 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Invalid messages format" }, { status: 400 });
         }
 
-        const servicePrompt = SERVICE_PROMPTS[serviceId] || "Atendimento geral.";
+        const supabase = createClient();
+
+        // Fetch base prompt from database
+        const { data: basePrompt } = await supabase
+            .from('prompts')
+            .select('content')
+            .eq('type', 'base')
+            .eq('is_active', true)
+            .single();
+
+        // Fetch service-specific prompt from database
+        const { data: servicePrompt } = await supabase
+            .from('prompts')
+            .select('content')
+            .eq('type', 'service')
+            .eq('service_code', serviceId)
+            .eq('is_active', true)
+            .single();
+
+        // Fallback to defaults if not found in database
+        const baseContent = basePrompt?.content || "Você é uma assistente virtual especializada em direito trabalhista.";
+        const serviceContent = servicePrompt?.content || "Atendimento geral.";
         
         // Construct the full system prompt
         const systemMessage = {
             role: "system" as const,
-            content: `${BASE_PROMPT}\n\n${servicePrompt}`
+            content: `${baseContent}\n\n${serviceContent}`
         };
 
         // Combine system prompt with conversation history

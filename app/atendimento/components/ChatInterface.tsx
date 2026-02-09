@@ -10,6 +10,7 @@ interface ChatInterfaceProps {
   showWhatsappButton: boolean;
   chatFinished: boolean;
   contactInfo: ContactInfo;
+  leadCode: string | null;
   onSendMessage: (text: string) => void;
   onRestart: () => void;
 }
@@ -22,6 +23,7 @@ export default function ChatInterface({
   showWhatsappButton,
   chatFinished,
   contactInfo,
+  leadCode,
   onSendMessage,
   onRestart
 }: ChatInterfaceProps) {
@@ -143,7 +145,7 @@ export default function ChatInterface({
               Entendemos seu caso. Fale com um advogado agora:
             </p>
             <a
-              href={`https://wa.me/5500000000000?text=${encodeURIComponent(`Olá, me chamo ${contactInfo.name}. Passei pela triagem sobre *${selectedService?.title}*.`)}`}
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5500000000000'}?text=${encodeURIComponent(`Olá, me chamo ${contactInfo.name}. Passei pela triagem sobre *${selectedService?.title}*.\nMeu código de atendimento é: ${leadCode || 'N/A'}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-6 py-4 rounded-xl transition-all w-full shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5"

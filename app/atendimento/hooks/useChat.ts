@@ -1,12 +1,40 @@
 import { useState } from "react";
 import { Message, Service } from "../types";
 
-export function useChat(selectedService: Service | null) {
+export function useChat(selectedService: Service | null, leadId: string | null) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("Digitando...");
   const [showWhatsappButton, setShowWhatsappButton] = useState(false);
   const [chatFinished, setChatFinished] = useState(false);
+
+  const saveMessage = async (role: "user" | "assistant", content: string) => {
+    if (!leadId) return;
+
+    try {
+      await fetch(`/api/leads/${leadId}/messages`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ role, content }),
+      });
+    } catch (error) {
+      console.error('Error saving message:', error);
+    }
+  };
+
+  const updateLeadStatus = async (status: 'quente' | 'frio') => {
+    if (!leadId) return;
+
+    try {
+      await fetch(`/api/leads/${leadId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+    } catch (error) {
+      console.error('Error updating lead status:', error);
+    }
+  };
 
   const processAIResponse = async (content: string) => {
     setLoading(true);
@@ -40,13 +68,18 @@ export function useChat(selectedService: Service | null) {
     setMessages((prev) => [...prev, { role: "assistant", content: aiContent }]);
     setLoading(false);
 
+    // Save assistant message to database
+    await saveMessage('assistant', aiContent);
+
     if (shouldShowWhatsapp) {
       setShowWhatsappButton(true);
       setChatFinished(true);
+      await updateLeadStatus('quente');
     } else if (shouldFinishWithoutWhatsapp) {
       // Chat encerrado sem WhatsApp - lead frio
       setShowWhatsappButton(false);
       setChatFinished(true);
+      await updateLeadStatus('frio');
     }
   };
 
@@ -60,6 +93,9 @@ export function useChat(selectedService: Service | null) {
 
     setMessages(newMessages);
 
+    // Save user message to database
+    await saveMessage('user', text);
+
     // Immediate feedback that we are processing
     setLoading(true);
     setLoadingText("Analisando...");
@@ -70,7 +106,7 @@ export function useChat(selectedService: Service | null) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: newMessages.map(({ role, content }) => ({ role, content })),
-          serviceId: selectedService?.id
+          serviceId: selectedService?.code || selectedService?.id
         }),
       });
 
