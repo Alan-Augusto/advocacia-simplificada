@@ -30,10 +30,10 @@ const STATUS_ACCENT: Record<LeadStatus, string> = {
 };
 
 const KANBAN_COLUMNS: LeadStatus[] = [
-  'em_andamento',
   'quente',
   'contatado',
   'fechado',
+  'em_andamento',
   'frio',
   'perdido',
 ];

@@ -15,6 +15,15 @@ const statusLabels: Record<LeadStatus, string> = {
   perdido: 'Perdido',
 };
 
+const statusColors: Record<LeadStatus, { bg: string; text: string; dot: string }> = {
+  em_andamento: { bg: 'bg-indigo-50', text: 'text-indigo-700', dot: 'bg-indigo-500' },
+  quente: { bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-500' },
+  frio: { bg: 'bg-slate-100', text: 'text-slate-600', dot: 'bg-slate-400' },
+  contatado: { bg: 'bg-blue-50', text: 'text-blue-700', dot: 'bg-blue-500' },
+  fechado: { bg: 'bg-violet-50', text: 'text-violet-700', dot: 'bg-violet-500' },
+  perdido: { bg: 'bg-rose-50', text: 'text-rose-700', dot: 'bg-rose-500' },
+};
+
 export default function ListView({ leads, onLeadClick }: ListViewProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -56,7 +65,8 @@ export default function ListView({ leads, onLeadClick }: ListViewProps) {
                 <td className="px-4 py-3 text-sm text-slate-600">{lead.phone}</td>
                 <td className="px-4 py-3 text-sm text-slate-600 max-w-xs truncate">{lead.service_title}</td>
                 <td className="px-4 py-3">
-                  <span className="px-2 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700">
+                  <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium ${statusColors[lead.status].bg} ${statusColors[lead.status].text}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${statusColors[lead.status].dot}`} />
                     {statusLabels[lead.status]}
                   </span>
                 </td>
