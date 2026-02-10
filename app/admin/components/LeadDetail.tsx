@@ -11,14 +11,41 @@ interface LeadDetailProps {
   onUpdate: () => void;
 }
 
-const statusOptions: Array<{ value: LeadStatus; label: string; color: string }> = [
-  { value: 'em_andamento', label: 'Em Andamento', color: 'indigo' },
-  { value: 'quente', label: 'Quente', color: 'emerald' },
-  { value: 'frio', label: 'Frio', color: 'slate' },
-  { value: 'contatado', label: 'Contatado', color: 'blue' },
-  { value: 'fechado', label: 'Fechado', color: 'violet' },
-  { value: 'perdido', label: 'Perdido', color: 'rose' },
+const statusOptions: Array<{ value: LeadStatus; label: string }> = [
+  { value: 'em_andamento', label: 'Em Andamento' },
+  { value: 'quente', label: 'Quente' },
+  { value: 'frio', label: 'Frio' },
+  { value: 'contatado', label: 'Contatado' },
+  { value: 'fechado', label: 'Fechado' },
+  { value: 'perdido', label: 'Perdido' },
 ];
+
+const statusColorMap: Record<LeadStatus, { active: string; base: string }> = {
+  em_andamento: {
+    active: 'bg-indigo-100 text-indigo-700 border border-indigo-300',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+  quente: {
+    active: 'bg-emerald-100 text-emerald-700 border border-emerald-300',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+  frio: {
+    active: 'bg-slate-200 text-slate-700 border border-slate-400',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+  contatado: {
+    active: 'bg-blue-100 text-blue-700 border border-blue-300',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+  fechado: {
+    active: 'bg-violet-100 text-violet-700 border border-violet-300',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+  perdido: {
+    active: 'bg-rose-100 text-rose-700 border border-rose-300',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+};
 
 export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps) {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -118,20 +145,22 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
         <div className="p-4 border-b border-slate-100">
           <label className="block text-xs font-semibold text-slate-700 mb-2">Status do Lead</label>
           <div className="flex flex-wrap gap-2">
-            {statusOptions.map((option) => (
-              <button
-                key={option.value}
-                onClick={() => handleStatusChange(option.value)}
-                disabled={updatingStatus || lead.status === option.value}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  lead.status === option.value
-                    ? `bg-${option.color}-100 text-${option.color}-700 border border-${option.color}-300`
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200'
-                } disabled:opacity-50 disabled:cursor-not-allowed`}
-              >
-                {option.label}
-              </button>
-            ))}
+            {statusOptions.map((option) => {
+              const isActive = lead.status === option.value;
+              const colors = statusColorMap[option.value];
+              return (
+                <button
+                  key={option.value}
+                  onClick={() => handleStatusChange(option.value)}
+                  disabled={updatingStatus || isActive}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
+                    isActive ? colors.active : colors.base
+                  }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 

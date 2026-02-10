@@ -2,8 +2,79 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { Icon } from '@iconify/react';
-import { useState } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import PageContainer, { BreadcrumbItem } from './components/PageContainer';
+import Sidebar, { NavItem } from './components/Sidebar';
 
+// ─── Page configuration ──────────────────────────────────
+interface PageConfig {
+  id: string;
+  title: string;
+  subtitle: string;
+  breadcrumbs: BreadcrumbItem[];
+}
+
+const PAGE_CONFIGS: Record<string, PageConfig> = {
+  '/admin/board': {
+    id: 'board',
+    title: 'Board de Leads',
+    subtitle: 'Gerencie todos os leads capturados pela IA',
+    breadcrumbs: [{ label: 'Board' }],
+  },
+  '/admin/services': {
+    id: 'services',
+    title: 'Gerenciar Serviços',
+    subtitle: 'Configure os serviços oferecidos no sistema',
+    breadcrumbs: [{ label: 'Serviços' }],
+  },
+  '/admin/prompts': {
+    id: 'prompts',
+    title: 'Gerenciar Prompts da IA',
+    subtitle: 'Configure o comportamento da assistente virtual',
+    breadcrumbs: [{ label: 'Prompts' }],
+  },
+  '/admin/settings': {
+    id: 'settings',
+    title: 'Configurações',
+    subtitle: 'Ajuste as configurações gerais do sistema',
+    breadcrumbs: [{ label: 'Configurações' }],
+  },
+};
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    id: 'board',
+    href: '/admin/board',
+    label: 'Board',
+    icon: 'solar:clipboard-list-linear',
+    description: 'Gerenciar leads',
+  },
+  {
+    id: 'services',
+    href: '/admin/services',
+    label: 'Serviços',
+    icon: 'solar:settings-linear',
+    description: 'Configurar serviços',
+  },
+  {
+    id: 'prompts',
+    href: '/admin/prompts',
+    label: 'Prompts',
+    icon: 'solar:chat-square-code-linear',
+    description: 'Editar prompts da IA',
+  },
+  {
+    id: 'settings',
+    href: '/admin/settings',
+    label: 'Configurações',
+    icon: 'solar:tuning-2-linear',
+    description: 'Configurações do sistema',
+  },
+];
+
+const SIDEBAR_STORAGE_KEY = 'admin_sidebar_collapsed';
+
+// ─── Component ───────────────────────────────────────────
 export default function AdminLayout({
   children,
 }: {
@@ -12,152 +83,91 @@ export default function AdminLayout({
   const pathname = usePathname();
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Hydrate collapsed state from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem(SIDEBAR_STORAGE_KEY);
+    if (stored === 'true') setSidebarCollapsed(true);
+  }, []);
+
+  const handleToggleSidebar = useCallback(() => {
+    setSidebarCollapsed((prev) => {
+      const next = !prev;
+      localStorage.setItem(SIDEBAR_STORAGE_KEY, String(next));
+      return next;
+    });
+  }, []);
 
   // Don't show layout on login page
   if (pathname === '/admin/login') {
     return <>{children}</>;
   }
 
+  // Get current page config
+  const pageConfig = useMemo(() => {
+    return (
+      PAGE_CONFIGS[pathname] ||
+      Object.entries(PAGE_CONFIGS).find(
+        ([key]) => pathname.startsWith(key) && key !== '/admin'
+      )?.[1] ||
+      PAGE_CONFIGS['/admin/board']
+    );
+  }, [pathname]);
+
+  // Get active nav item
+  const activeId = useMemo(() => {
+    const item = NAV_ITEMS.find(
+      (item) =>
+        pathname === item.href ||
+        (item.href !== '/admin/board' && pathname.startsWith(item.href))
+    );
+    return item?.id || 'board';
+  }, [pathname]);
+
   const handleLogout = async () => {
     await fetch('/api/admin/auth', { method: 'DELETE' });
     router.push('/admin/login');
   };
 
-  const navItems = [
-    {
-      href: '/admin',
-      label: 'Board',
-      icon: 'solar:clipboard-list-linear',
-      active: pathname === '/admin',
-    },
-    {
-      href: '/admin/services',
-      label: 'Serviços',
-      icon: 'solar:settings-linear',
-      active: pathname.startsWith('/admin/services'),
-    },
-    {
-      href: '/admin/prompts',
-      label: 'Prompts',
-      icon: 'solar:chat-square-code-linear',
-      active: pathname.startsWith('/admin/prompts'),
-    },
-    {
-      href: '/admin/settings',
-      label: 'Configurações',
-      icon: 'solar:tuning-2-linear',
-      active: pathname.startsWith('/admin/settings'),
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-50 flex">
-      {/* Sidebar - Desktop */}
-      <aside className="hidden lg:flex lg:flex-col w-56 bg-white border-r border-slate-100 fixed h-full">
-        {/* Logo */}
-        <div className="p-4 border-b border-slate-100">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
-              <Icon icon="solar:shield-check-bold" width="18" className="text-indigo-600" />
-            </div>
-            <div>
-              <h1 className="text-sm font-semibold text-slate-900">Admin CRM</h1>
-              <p className="text-xs text-slate-500">Dr. Luciano</p>
-            </div>
-          </div>
-        </div>
+    <div className="h-screen bg-slate-50 flex overflow-hidden">
+      {/* Sidebar */}
+      <Sidebar
+        navItems={NAV_ITEMS}
+        activeId={activeId}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={handleToggleSidebar}
+        onLogout={handleLogout}
+        mobileMenuOpen={mobileMenuOpen}
+        onMobileMenuClose={() => setMobileMenuOpen(false)}
+      />
 
-        {/* Navigation */}
-        <nav className="flex-1 p-3 space-y-0.5">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
-                item.active
-                  ? 'bg-indigo-50 text-indigo-600 font-medium'
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Icon icon={item.icon} width="18" />
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </nav>
-
-        {/* Logout Button */}
-        <div className="p-3 border-t border-slate-100">
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 transition-all w-full"
-          >
-            <Icon icon="solar:logout-2-linear" width="18" />
-            <span>Sair</span>
-          </button>
-        </div>
-      </aside>
-
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="lg:hidden fixed top-3 left-3 z-50 w-9 h-9 bg-white rounded-lg shadow-sm flex items-center justify-center text-slate-600 border border-slate-200"
-      >
-        <Icon icon={mobileMenuOpen ? 'solar:close-circle-linear' : 'solar:hamburger-menu-linear'} width="20" />
-      </button>
-
-      {/* Mobile Sidebar */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-black/50" onClick={() => setMobileMenuOpen(false)}>
-          <aside className="w-56 bg-white h-full" onClick={(e) => e.stopPropagation()}>
-            {/* Logo */}
-            <div className="p-4 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
-                  <Icon icon="solar:shield-check-bold" width="18" className="text-indigo-600" />
-                </div>
-                <div>
-                  <h1 className="text-sm font-semibold text-slate-900">Admin CRM</h1>
-                  <p className="text-xs text-slate-500">Dr. Luciano</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <nav className="flex-1 p-3 space-y-0.5">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
-                    item.active
-                      ? 'bg-indigo-50 text-indigo-600 font-medium'
-                      : 'text-slate-600 hover:bg-slate-50'
-                  }`}
-                >
-                  <Icon icon={item.icon} width="18" />
-                  <span>{item.label}</span>
-                </a>
-              ))}
-            </nav>
-
-            {/* Logout Button */}
-            <div className="p-3 border-t border-slate-100">
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 transition-all w-full"
-              >
-                <Icon icon="solar:logout-2-linear" width="18" />
-                <span>Sair</span>
-              </button>
-            </div>
-          </aside>
-        </div>
+      {/* Mobile Menu Toggle */}
+      {!mobileMenuOpen && (
+        <button
+          onClick={() => setMobileMenuOpen(true)}
+          className="lg:hidden fixed top-3 left-3 z-30 w-9 h-9 bg-white rounded-lg shadow-sm flex items-center justify-center text-slate-600 border border-slate-200"
+        >
+          <Icon icon="solar:hamburger-menu-linear" width="20" />
+        </button>
       )}
 
-      {/* Main Content */}
-      <main className="flex-1 lg:ml-56 min-h-screen">
-        {children}
+      {/* Main Content Area */}
+      <main
+        className={`
+          flex-1 flex flex-col h-screen overflow-hidden
+          transition-all duration-300 ease-in-out
+          ${sidebarCollapsed ? 'lg:ml-16' : 'lg:ml-56'}
+        `}
+      >
+        <PageContainer
+          title={pageConfig.title}
+          subtitle={pageConfig.subtitle}
+          breadcrumbs={pageConfig.breadcrumbs}
+        >
+          {children}
+        </PageContainer>
       </main>
     </div>
   );
