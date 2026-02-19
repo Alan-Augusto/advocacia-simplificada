@@ -23,7 +23,7 @@ export default function AdminLoginPage() {
       });
 
       if (response.ok) {
-        router.push('/admin');
+        router.push('/admin/board');
       } else {
         setError('Senha incorreta. Tente novamente.');
       }
