@@ -87,80 +87,82 @@ export default function ServicesContent() {
   }
 
   return (
-    <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="bg-white rounded-lg border border-slate-200 p-5 hover:shadow-md transition-all"
-          >
-            {/* Header */}
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className={`w-11 h-11 rounded-lg bg-${service.color_class}-100 text-${service.color_class}-600 flex items-center justify-center`}>
-                  <Icon icon={service.icon} width="22" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-slate-900">{service.title}</h3>
-                    <span className="text-xs font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">
-                      {service.code}
-                    </span>
+    <div className="flex flex-col h-full overflow-hidden">
+      <div className="flex-1 overflow-y-auto min-h-0 pr-1 -mr-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-4">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="bg-white rounded-lg border border-slate-200 p-5 hover:shadow-md transition-all h-fit"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 rounded-lg bg-${service.color_class}-100 text-${service.color_class}-600 flex items-center justify-center`}>
+                    <Icon icon={service.icon} width="22" />
                   </div>
-                  <p className="text-xs text-slate-500 mt-0.5">Ordem: {service.order}</p>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-semibold text-slate-900">{service.title}</h3>
+                      <span className="text-xs font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">
+                        {service.code}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 mt-0.5">Ordem: {service.order}</p>
+                  </div>
                 </div>
+                <button
+                  onClick={() => handleToggleActive(service)}
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
+                    service.is_active
+                      ? 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200'
+                      : 'bg-slate-100 text-slate-400 hover:bg-slate-200'
+                  }`}
+                  title={service.is_active ? 'Desativar' : 'Ativar'}
+                >
+                  <Icon
+                    icon={service.is_active ? 'solar:eye-linear' : 'solar:eye-closed-linear'}
+                    width="18"
+                  />
+                </button>
               </div>
+
+              {/* Description */}
+              <p className="text-sm text-slate-600 mb-3 line-clamp-2">{service.description}</p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {service.tags?.slice(0, 3).map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                {(service.tags?.length || 0) > 3 && (
+                  <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">
+                    +{(service.tags?.length || 0) - 3}
+                  </span>
+                )}
+              </div>
+
+              {/* Actions */}
               <button
-                onClick={() => handleToggleActive(service)}
-                className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
-                  service.is_active
-                    ? 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200'
-                    : 'bg-slate-100 text-slate-400 hover:bg-slate-200'
-                }`}
-                title={service.is_active ? 'Desativar' : 'Ativar'}
+                onClick={() => handleEdit(service)}
+                className="w-full bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all border border-slate-200"
               >
-                <Icon
-                  icon={service.is_active ? 'solar:eye-linear' : 'solar:eye-closed-linear'}
-                  width="18"
-                />
+                <Icon icon="solar:pen-linear" width="16" />
+                Editar Serviço
               </button>
             </div>
-
-            {/* Description */}
-            <p className="text-sm text-slate-600 mb-3 line-clamp-2">{service.description}</p>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {service.tags?.slice(0, 3).map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-              {(service.tags?.length || 0) > 3 && (
-                <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">
-                  +{(service.tags?.length || 0) - 3}
-                </span>
-              )}
-            </div>
-
-            {/* Actions */}
-            <button
-              onClick={() => handleEdit(service)}
-              className="w-full bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all border border-slate-200"
-            >
-              <Icon icon="solar:pen-linear" width="16" />
-              Editar Serviço
-            </button>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Form Modal */}
       {showForm && <ServiceForm service={editingService} onClose={handleFormClose} />}
-    </>
+    </div>
   );
 }
 

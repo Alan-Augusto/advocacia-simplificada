@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import ConfirmModal from './ConfirmModal';
 import { Icon } from '@iconify/react';
 import type { Lead, Message, LeadStatus } from '@/lib/types/database';
 import { formatLeadCode } from '@/lib/utils/lead-code';
@@ -51,6 +52,8 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
   const [updatingStatus, setUpdatingStatus] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
     fetchMessages();
@@ -71,17 +74,36 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
   const handleStatusChange = async (newStatus: LeadStatus) => {
     setUpdatingStatus(true);
     try {
-      await fetch(`/api/leads/${lead.id}`, {
+      const response = await fetch(`/api/leads/${lead.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
       });
+      if (!response.ok) throw new Error('Failed to update status');
       onUpdate();
       onClose();
     } catch (error) {
       console.error('Error updating status:', error);
+      alert('Erro ao atualizar status do lead.');
     } finally {
       setUpdatingStatus(false);
+    }
+  };
+
+  const handleDeleteConfirm = async () => {
+    setDeleting(true);
+    try {
+      const response = await fetch(`/api/leads/${lead.id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error('Failed to delete lead');
+      setShowDeleteModal(false);
+      onUpdate();
+      onClose();
+    } catch (error) {
+      console.error('Error deleting lead:', error);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -133,12 +155,22 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
               </div>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-all"
-          >
-            <Icon icon="solar:close-circle-linear" width="20" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setShowDeleteModal(true)}
+              disabled={deleting}
+              className="p-2 rounded-lg text-rose-400 hover:bg-rose-50 hover:text-rose-600 transition-all disabled:opacity-50"
+              title="Apagar lead"
+            >
+              <Icon icon={deleting ? "solar:refresh-linear" : "solar:trash-bin-trash-linear"} width="20" className={deleting ? "animate-spin" : ""} />
+            </button>
+            <button
+              onClick={onClose}
+              className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-all"
+            >
+              <Icon icon="solar:close-circle-linear" width="20" />
+            </button>
+          </div>
         </div>
 
         {/* Status Selector */}
@@ -202,6 +234,18 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
           )}
         </div>
       </div>
+
+      <ConfirmModal
+        isOpen={showDeleteModal}
+        title="Apagar lead?"
+        description={`O lead de "${lead.name}" será removido do board e não poderá ser recuperado.`}
+        confirmLabel="Sim, apagar"
+        cancelLabel="Cancelar"
+        variant="danger"
+        loading={deleting}
+        onConfirm={handleDeleteConfirm}
+        onCancel={() => setShowDeleteModal(false)}
+      />
     </div>
   );
 }

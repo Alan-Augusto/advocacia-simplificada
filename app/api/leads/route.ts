@@ -83,6 +83,7 @@ export async function GET(request: NextRequest) {
     let query = supabase
       .from('leads')
       .select('*', { count: 'exact' })
+      .is('deleted_at', null)
       .order('last_message_at', { ascending: false });
 
     // Apply filters
@@ -109,10 +110,11 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get stats
+    // Get stats (excluding deleted leads)
     const { data: statsData } = await supabase
       .from('leads')
-      .select('status');
+      .select('status')
+      .is('deleted_at', null);
 
     const stats = {
       total: count || 0,
