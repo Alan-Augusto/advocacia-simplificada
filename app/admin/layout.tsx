@@ -99,11 +99,6 @@ export default function AdminLayout({
     });
   }, []);
 
-  // Don't show layout on login page
-  if (pathname === '/admin/login') {
-    return <>{children}</>;
-  }
-
   // Get current page config
   const pageConfig = useMemo(() => {
     return (
@@ -124,6 +119,11 @@ export default function AdminLayout({
     );
     return item?.id || 'board';
   }, [pathname]);
+
+  // Don't show layout on login page
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
+  }
 
   const handleLogout = async () => {
     await fetch('/api/admin/auth', { method: 'DELETE' });
