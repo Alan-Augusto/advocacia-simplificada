@@ -317,7 +317,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               Conteúdo do artigo
             </label>
             <div className="border border-slate-300 rounded-lg overflow-hidden focus-within:border-primary-500 focus-within:ring-2 focus-within:ring-primary-500/20 transition-all">
-              <EditorToolbar editor={editor} />
+              {editor && <EditorToolbar editor={editor} />}
               <EditorContent editor={editor} />
             </div>
           </div>
