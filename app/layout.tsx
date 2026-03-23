@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
+import HuePickerLoader from "./components/HuePickerLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} bg-white text-slate-800 antialiased`}>
         {children}
+        <HuePickerLoader />
       </body>
     </html>
   );
