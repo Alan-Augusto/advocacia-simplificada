@@ -111,3 +111,21 @@ export interface AppointmentWithSlot extends Appointment {
 
 // Slots grouped by date string (YYYY-MM-DD)
 export type SlotsByDate = Record<string, AvailabilitySlot[]>;
+
+// ─── Blog ──────────────────────────────────────────────────
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+  icon: string;
+  color: string;
+  tags: string[];
+  highlight: boolean;
+  is_active: boolean;
+  order: number;
+  created_at: string;
+  updated_at: string;
+}

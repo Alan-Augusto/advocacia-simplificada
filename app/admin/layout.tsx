@@ -39,6 +39,12 @@ const PAGE_CONFIGS: Record<string, PageConfig> = {
     subtitle: 'Configure o comportamento da assistente virtual',
     breadcrumbs: [{ label: 'Prompts' }],
   },
+  '/admin/blog': {
+    id: 'blog',
+    title: 'Blog',
+    subtitle: 'Gerencie as postagens exibidas na landing page',
+    breadcrumbs: [{ label: 'Blog' }],
+  },
   '/admin/settings': {
     id: 'settings',
     title: 'Configurações',
@@ -75,6 +81,13 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Prompts',
     icon: 'solar:chat-square-code-linear',
     description: 'Editar prompts da IA',
+  },
+  {
+    id: 'blog',
+    href: '/admin/blog',
+    label: 'Blog',
+    icon: 'solar:document-text-linear',
+    description: 'Postagens do blog',
   },
   {
     id: 'settings',

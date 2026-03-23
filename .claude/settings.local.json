@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(grep -E \"\\(^[^/]*$|package\\\\.json|tsconfig\\)\")",
-      "mcp__claude_ai_Supabase__list_projects"
+      "mcp__claude_ai_Supabase__list_projects",
+      "Bash(find /c/DEV/DOPPIA/advocacia-simplificada -type f -name *.sql -o -name *migration*)"
     ]
   }
 }
