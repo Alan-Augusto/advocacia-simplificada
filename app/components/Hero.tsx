@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="hero-gradient min-h-[85vh] flex pt-20 items-center relative overflow-hidden">
       <div
-        className="absolute bottom-0 right-0 h-9/10 w-auto"
+        className="hidden sm:block absolute bottom-0 right-0 overflow-visible"
         style={{
           maskImage: "linear-gradient(to right, transparent, black 35%), linear-gradient(to bottom, transparent, black 12%)",
           maskComposite: "intersect",
@@ -16,7 +16,7 @@ export default function Hero() {
       >
         <img
           src="assets/hero.png"
-          className="h-full w-auto object-contain"
+          className="h-[76vh] w-auto max-w-none object-contain"
           alt=""
         />
       </div>
