@@ -14,6 +14,7 @@ interface KanbanBoardProps {
 const STATUS_LABELS: Record<LeadStatus, string> = {
   em_andamento: 'Em Andamento',
   quente: 'Quente',
+  agendado: 'Agendados',
   frio: 'Frio',
   contatado: 'Contatado',
   fechado: 'Fechado',
@@ -23,6 +24,7 @@ const STATUS_LABELS: Record<LeadStatus, string> = {
 const STATUS_ACCENT: Record<LeadStatus, string> = {
   em_andamento: 'bg-indigo-500',
   quente: 'bg-emerald-500',
+  agendado: 'bg-teal-500',
   frio: 'bg-slate-400',
   contatado: 'bg-blue-500',
   fechado: 'bg-violet-500',
@@ -31,6 +33,7 @@ const STATUS_ACCENT: Record<LeadStatus, string> = {
 
 const KANBAN_COLUMNS: LeadStatus[] = [
   'quente',
+  'agendado',
   'contatado',
   'fechado',
   'em_andamento',

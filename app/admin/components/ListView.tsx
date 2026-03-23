@@ -9,6 +9,7 @@ interface ListViewProps {
 const statusLabels: Record<LeadStatus, string> = {
   em_andamento: 'Em Andamento',
   quente: 'Quente',
+  agendado: 'Agendado',
   frio: 'Frio',
   contatado: 'Contatado',
   fechado: 'Fechado',
@@ -18,6 +19,7 @@ const statusLabels: Record<LeadStatus, string> = {
 const statusColors: Record<LeadStatus, { bg: string; text: string; dot: string }> = {
   em_andamento: { bg: 'bg-indigo-50', text: 'text-indigo-700', dot: 'bg-indigo-500' },
   quente: { bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-500' },
+  agendado: { bg: 'bg-teal-50', text: 'text-teal-700', dot: 'bg-teal-500' },
   frio: { bg: 'bg-slate-100', text: 'text-slate-600', dot: 'bg-slate-400' },
   contatado: { bg: 'bg-blue-50', text: 'text-blue-700', dot: 'bg-blue-500' },
   fechado: { bg: 'bg-violet-50', text: 'text-violet-700', dot: 'bg-violet-500' },

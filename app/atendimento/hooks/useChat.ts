@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Message, Service } from "../types";
+import type { Appointment } from "@/lib/types/database";
+
+export type HotLeadAction = 'idle' | 'options' | 'contact_requested' | 'scheduled';
 
 export function useChat(selectedService: Service | null, leadId: string | null) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("Digitando...");
-  const [showWhatsappButton, setShowWhatsappButton] = useState(false);
+  const [hotLeadAction, setHotLeadAction] = useState<HotLeadAction>('idle');
+  const [appointment, setAppointment] = useState<Appointment | null>(null);
   const [chatFinished, setChatFinished] = useState(false);
 
   const saveMessage = async (role: "user" | "assistant", content: string) => {
@@ -41,22 +45,20 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
     let aiContent = content;
     const leadQuenteTag = "[LEAD_QUENTE]";
     const leadFrioTag = "[LEAD_FRIO]";
-    let shouldShowWhatsapp = false;
-    let shouldFinishWithoutWhatsapp = false;
+    let shouldShowOptions = false;
+    let shouldFinishWithoutOptions = false;
 
     if (aiContent.includes(leadQuenteTag)) {
-      shouldShowWhatsapp = true;
+      shouldShowOptions = true;
       aiContent = aiContent.replace(leadQuenteTag, "").trim();
     } else if (aiContent.includes(leadFrioTag)) {
-      shouldFinishWithoutWhatsapp = true;
+      shouldFinishWithoutOptions = true;
       aiContent = aiContent.replace(leadFrioTag, "").trim();
     }
 
     // Calculate delay based on length (e.g., 20ms per char, min 1.5s, max 6s)
     const delay = Math.min(Math.max(aiContent.length * 20, 1500), 6000);
 
-    // Simulate states
-    // Split delay roughly between steps
     const stepDuration = delay / 2;
 
     setLoadingText("Analisando a informação...");
@@ -71,16 +73,27 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
     // Save assistant message to database
     await saveMessage('assistant', aiContent);
 
-    if (shouldShowWhatsapp) {
-      setShowWhatsappButton(true);
-      setChatFinished(true);
+    if (shouldShowOptions) {
+      setHotLeadAction('options');
+      // Don't set chatFinished yet — wait for user to pick an option
       await updateLeadStatus('quente');
-    } else if (shouldFinishWithoutWhatsapp) {
-      // Chat encerrado sem WhatsApp - lead frio
-      setShowWhatsappButton(false);
+    } else if (shouldFinishWithoutOptions) {
       setChatFinished(true);
       await updateLeadStatus('frio');
     }
+  };
+
+  const handleContactRequest = async () => {
+    // Lead stays 'quente' — Dr. Luciano sees it on the board and calls back
+    setHotLeadAction('contact_requested');
+    setChatFinished(true);
+  };
+
+  const handleAppointmentBooked = (bookedAppointment: Appointment) => {
+    setAppointment(bookedAppointment);
+    setHotLeadAction('scheduled');
+    setChatFinished(true);
+    // Lead status update to 'agendado' is handled in the API route
   };
 
   const sendMessage = async (text: string) => {
@@ -125,8 +138,11 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
     setMessages,
     loading,
     loadingText,
-    showWhatsappButton,
+    hotLeadAction,
+    appointment,
     chatFinished,
-    sendMessage
+    sendMessage,
+    handleContactRequest,
+    handleAppointmentBooked,
   };
 }

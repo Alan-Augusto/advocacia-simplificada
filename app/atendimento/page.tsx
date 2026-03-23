@@ -16,14 +16,17 @@ export default function AtendimentoPage() {
   const [leadCode, setLeadCode] = useState<string | null>(null);
 
   // Use the chat hook
-  const { 
-    messages, 
-    setMessages, 
-    loading, 
-    loadingText, 
-    showWhatsappButton, 
+  const {
+    messages,
+    setMessages,
+    loading,
+    loadingText,
+    hotLeadAction,
+    appointment,
     chatFinished,
-    sendMessage 
+    sendMessage,
+    handleContactRequest,
+    handleAppointmentBooked,
   } = useChat(selectedService, leadId);
 
   const handleServiceSelect = (service: Service) => {
@@ -117,17 +120,21 @@ export default function AtendimentoPage() {
           )}
 
           {step === "chat" && (
-            <ChatInterface 
+            <ChatInterface
               selectedService={selectedService}
               messages={messages}
               loading={loading}
               loadingText={loadingText}
-              showWhatsappButton={showWhatsappButton}
+              hotLeadAction={hotLeadAction}
+              appointment={appointment}
               chatFinished={chatFinished}
               contactInfo={contactInfo}
+              leadId={leadId}
               leadCode={leadCode}
               onSendMessage={sendMessage}
               onRestart={handleRestart}
+              onContactRequest={handleContactRequest}
+              onAppointmentBooked={handleAppointmentBooked}
             />
           )}
         </div>

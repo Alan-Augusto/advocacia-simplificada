@@ -15,6 +15,7 @@ interface LeadDetailProps {
 const statusOptions: Array<{ value: LeadStatus; label: string }> = [
   { value: 'em_andamento', label: 'Em Andamento' },
   { value: 'quente', label: 'Quente' },
+  { value: 'agendado', label: 'Agendado' },
   { value: 'frio', label: 'Frio' },
   { value: 'contatado', label: 'Contatado' },
   { value: 'fechado', label: 'Fechado' },
@@ -28,6 +29,10 @@ const statusColorMap: Record<LeadStatus, { active: string; base: string }> = {
   },
   quente: {
     active: 'bg-emerald-100 text-emerald-700 border border-emerald-300',
+    base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
+  },
+  agendado: {
+    active: 'bg-teal-100 text-teal-700 border border-teal-300',
     base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
   },
   frio: {

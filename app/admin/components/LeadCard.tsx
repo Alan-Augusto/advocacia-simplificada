@@ -10,6 +10,7 @@ interface LeadCardProps {
 const statusColors = {
   em_andamento: { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' },
   quente: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
+  agendado: { bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-200' },
   frio: { bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200' },
   contatado: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
   fechado: { bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-200' },
@@ -19,6 +20,7 @@ const statusColors = {
 const statusLabels = {
   em_andamento: 'Em Andamento',
   quente: 'Quente',
+  agendado: 'Agendado',
   frio: 'Frio',
   contatado: 'Contatado',
   fechado: 'Fechado',

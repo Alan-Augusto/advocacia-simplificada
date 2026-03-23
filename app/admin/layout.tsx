@@ -21,6 +21,12 @@ const PAGE_CONFIGS: Record<string, PageConfig> = {
     subtitle: 'Gerencie todos os leads capturados pela IA',
     breadcrumbs: [{ label: 'Board' }],
   },
+  '/admin/agenda': {
+    id: 'agenda',
+    title: 'Agenda',
+    subtitle: 'Gerencie horários disponíveis e consultas agendadas',
+    breadcrumbs: [{ label: 'Agenda' }],
+  },
   '/admin/services': {
     id: 'services',
     title: 'Gerenciar Serviços',
@@ -48,6 +54,13 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Board',
     icon: 'solar:clipboard-list-linear',
     description: 'Gerenciar leads',
+  },
+  {
+    id: 'agenda',
+    href: '/admin/agenda',
+    label: 'Agenda',
+    icon: 'solar:calendar-broken',
+    description: 'Horários e consultas',
   },
   {
     id: 'services',

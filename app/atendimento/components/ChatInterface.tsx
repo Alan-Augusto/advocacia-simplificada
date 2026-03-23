@@ -1,18 +1,26 @@
 import { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Service, Message, ContactInfo } from "../types";
+import type { Appointment } from "@/lib/types/database";
+import type { HotLeadAction } from "../hooks/useChat";
+import SchedulingModal from "./SchedulingModal";
+import ContactRequestModal from "./ContactRequestModal";
 
 interface ChatInterfaceProps {
   selectedService: Service | null;
   messages: Message[];
   loading: boolean;
   loadingText: string;
-  showWhatsappButton: boolean;
+  hotLeadAction: HotLeadAction;
+  appointment: Appointment | null;
   chatFinished: boolean;
   contactInfo: ContactInfo;
+  leadId: string | null;
   leadCode: string | null;
   onSendMessage: (text: string) => void;
   onRestart: () => void;
+  onContactRequest: () => void;
+  onAppointmentBooked: (appointment: Appointment) => void;
 }
 
 export default function ChatInterface({
@@ -20,14 +28,19 @@ export default function ChatInterface({
   messages,
   loading,
   loadingText,
-  showWhatsappButton,
+  hotLeadAction,
   chatFinished,
   contactInfo,
+  leadId,
   leadCode,
   onSendMessage,
-  onRestart
+  onRestart,
+  onContactRequest,
+  onAppointmentBooked,
 }: ChatInterfaceProps) {
   const [input, setInput] = useState("");
+  const [isSchedulingOpen, setIsSchedulingOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -49,6 +62,11 @@ export default function ChatInterface({
       e.preventDefault();
       handleSend();
     }
+  };
+
+  const handleContactClick = () => {
+    setIsContactModalOpen(true);
+    onContactRequest();
   };
 
   return (
@@ -98,7 +116,7 @@ export default function ChatInterface({
                 <Icon icon="mdi:sparkles" width="16" />
               </div>
             )}
-            
+
             <div
               className={`max-w-[85%] sm:max-w-[75%] md:max-w-[65%] rounded-2xl px-5 py-3.5 text-sm sm:text-base leading-relaxed shadow-sm ${msg.role === "user"
                   ? "bg-indigo-600 text-white rounded-br-none"
@@ -112,7 +130,7 @@ export default function ChatInterface({
                 </div>
               )}
             </div>
-            
+
             {/* Avatar do Usuário - Desktop */}
             {msg.role === "user" && (
               <div className="hidden md:flex w-8 h-8 rounded-full flex-shrink-0 items-center justify-center text-white shadow-md bg-slate-400 font-semibold text-xs">
@@ -139,20 +157,41 @@ export default function ChatInterface({
 
       {/* Input Area or Final Action - Fixo em baixo */}
       <div className="flex-shrink-0 p-3 sm:p-4 border-t border-slate-200">
-        {showWhatsappButton ? (
-          <div className="text-center py-2 space-y-3 animate-in fade-in slide-in-from-bottom-4">
-            <p className="text-sm text-slate-600 font-medium">
-              Entendemos seu caso. Fale com um advogado agora:
+        {hotLeadAction === 'options' ? (
+          <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4">
+            <p className="text-sm text-center text-slate-600 font-medium">
+              Entendemos seu caso. Como prefere prosseguir?
             </p>
-            <a
-              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5500000000000'}?text=${encodeURIComponent(`Olá, me chamo ${contactInfo.name}. Passei pela triagem sobre *${selectedService?.title}*.\nMeu código de atendimento é: ${leadCode || 'N/A'}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-6 py-4 rounded-xl transition-all w-full shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5"
-            >
-              <Icon icon="ic:baseline-whatsapp" width="24" />
-              Continuar no WhatsApp
-            </a>
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={handleContactClick}
+                className="flex items-center justify-center gap-2 w-full border border-indigo-300 text-indigo-700 font-semibold px-5 py-3 rounded-xl hover:bg-indigo-50 transition-all"
+              >
+                <Icon icon="solar:phone-calling-rounded-linear" width="20" />
+                Receber contato nas próximas horas
+              </button>
+              <button
+                onClick={() => setIsSchedulingOpen(true)}
+                className="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-md hover:shadow-indigo-500/25 hover:-translate-y-0.5"
+              >
+                <Icon icon="solar:calendar-broken" width="20" />
+                Agendar horário com o Dr. Luciano
+              </button>
+            </div>
+          </div>
+        ) : hotLeadAction === 'contact_requested' ? (
+          <div className="text-center py-3 animate-in fade-in slide-in-from-bottom-4">
+            <div className="inline-flex items-center gap-2 text-sm text-emerald-600 font-medium">
+              <Icon icon="solar:check-circle-bold" width="20" />
+              <span>Dr. Luciano será notificado e entrará em contato em breve.</span>
+            </div>
+          </div>
+        ) : hotLeadAction === 'scheduled' ? (
+          <div className="text-center py-3 animate-in fade-in slide-in-from-bottom-4">
+            <div className="inline-flex items-center gap-2 text-sm text-emerald-600 font-medium">
+              <Icon icon="solar:calendar-broken" width="20" />
+              <span>Consulta agendada com sucesso!</span>
+            </div>
           </div>
         ) : chatFinished ? (
           <div className="text-center py-3 animate-in fade-in slide-in-from-bottom-4">
@@ -176,8 +215,8 @@ export default function ChatInterface({
                 style={{ height: 'auto', minHeight: '48px' }}
                 onInput={(e) => {
                   const target = e.target as HTMLTextAreaElement;
-                  target.style.height = 'auto'; // Reset height
-                  target.style.height = `${Math.min(target.scrollHeight, 120)}px`; // Set new height
+                  target.style.height = 'auto';
+                  target.style.height = `${Math.min(target.scrollHeight, 120)}px`;
                 }}
               />
             </div>
@@ -191,6 +230,28 @@ export default function ChatInterface({
           </div>
         )}
       </div>
+
+      {/* Modals */}
+      <SchedulingModal
+        isOpen={isSchedulingOpen}
+        leadId={leadId || ''}
+        leadName={contactInfo.name}
+        leadPhone={contactInfo.phone}
+        leadService={selectedService?.title || ''}
+        leadCode={leadCode || ''}
+        onClose={() => setIsSchedulingOpen(false)}
+        onBooked={(booked) => {
+          setIsSchedulingOpen(false);
+          onAppointmentBooked(booked);
+        }}
+      />
+
+      <ContactRequestModal
+        isOpen={isContactModalOpen}
+        leadName={contactInfo.name}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </div>
   );
 }
+

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\(^[^/]*$|package\\\\.json|tsconfig\\)\")",
+      "mcp__claude_ai_Supabase__list_projects"
+    ]
+  }
+}

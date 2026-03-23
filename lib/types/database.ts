@@ -1,6 +1,7 @@
 export type LeadStatus =
   | 'em_andamento'
   | 'quente'
+  | 'agendado'
   | 'frio'
   | 'contatado'
   | 'fechado'
@@ -75,3 +76,38 @@ export interface LeadStats {
   em_andamento: number;
   conversao: number;
 }
+
+// ─── Scheduling ───────────────────────────────────────────
+
+export type AppointmentStatus = 'scheduled' | 'cancelled' | 'completed' | 'no_show';
+
+export interface AvailabilitySlot {
+  id: string;
+  date: string;             // 'YYYY-MM-DD'
+  start_time: string;       // 'HH:MM:SS'
+  duration_minutes: number;
+  is_booked: boolean;
+  is_cancelled: boolean;
+  created_at: string;
+}
+
+export interface Appointment {
+  id: string;
+  slot_id: string;
+  lead_id: string | null;
+  lead_name: string;
+  lead_phone: string;
+  lead_service: string;
+  lead_code: string;
+  status: AppointmentStatus;
+  notes: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AppointmentWithSlot extends Appointment {
+  slot: AvailabilitySlot;
+}
+
+// Slots grouped by date string (YYYY-MM-DD)
+export type SlotsByDate = Record<string, AvailabilitySlot[]>;
