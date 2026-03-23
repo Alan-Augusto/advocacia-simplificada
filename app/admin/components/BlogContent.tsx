@@ -8,7 +8,7 @@ import BlogPostForm from '../blog/components/BlogPostForm';
 const colorMap: Record<string, string> = {
   amber: 'bg-amber-100 text-amber-600',
   teal: 'bg-teal-100 text-teal-600',
-  indigo: 'bg-indigo-100 text-indigo-600',
+  indigo: 'bg-primary-100 text-primary-600',
   emerald: 'bg-emerald-100 text-emerald-600',
   blue: 'bg-blue-100 text-blue-600',
   rose: 'bg-rose-100 text-rose-600',
@@ -72,7 +72,7 @@ export default function BlogContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Icon icon="solar:refresh-linear" width="28" className="text-indigo-600 animate-spin" />
+        <Icon icon="solar:refresh-linear" width="28" className="text-primary-600 animate-spin" />
       </div>
     );
   }
@@ -88,7 +88,7 @@ export default function BlogContent() {
           <p className="text-sm text-slate-500 mb-6">Comece adicionando sua primeira postagem de blog</p>
           <button
             onClick={handleNew}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all"
+            className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all"
           >
             <Icon icon="solar:add-circle-linear" width="18" />
             Nova Postagem
@@ -120,7 +120,7 @@ export default function BlogContent() {
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold text-slate-900 line-clamp-1">{post.title}</h3>
                         {post.highlight && (
-                          <span className="inline-flex items-center gap-1 bg-indigo-100 text-indigo-600 text-xs font-medium px-1.5 py-0.5 rounded-full">
+                          <span className="inline-flex items-center gap-1 bg-primary-100 text-primary-600 text-xs font-medium px-1.5 py-0.5 rounded-full">
                             <Icon icon="solar:star-bold" width="10" />
                             Destaque
                           </span>
@@ -188,7 +188,7 @@ export function BlogActions({ onNew }: { onNew: () => void }) {
   return (
     <button
       onClick={onNew}
-      className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all shadow-sm"
+      className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all shadow-sm"
     >
       <Icon icon="solar:add-circle-linear" width="18" />
       Nova Postagem

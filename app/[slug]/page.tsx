@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 const colorMap: Record<string, { bg: string; iconColor: string }> = {
   amber: { bg: 'from-amber-100 to-orange-50', iconColor: 'text-amber-500' },
   teal: { bg: 'from-teal-100 to-emerald-50', iconColor: 'text-teal-500' },
-  indigo: { bg: 'from-indigo-100 to-violet-50', iconColor: 'text-indigo-500' },
+  indigo: { bg: 'from-primary-100 to-violet-50', iconColor: 'text-primary-500' },
   emerald: { bg: 'from-emerald-100 to-green-50', iconColor: 'text-emerald-500' },
   blue: { bg: 'from-blue-100 to-sky-50', iconColor: 'text-blue-500' },
   rose: { bg: 'from-rose-100 to-pink-50', iconColor: 'text-rose-500' },
@@ -111,7 +111,7 @@ export default async function BlogPostPage(
           )}
 
           {/* CTA */}
-          <div className="mt-16 p-8 bg-indigo-50 rounded-2xl border border-indigo-100 text-center">
+          <div className="mt-16 p-8 bg-primary-50 rounded-2xl border border-primary-100 text-center">
             <h3 className="text-xl font-semibold text-slate-900 mb-2">
               Precisa de ajuda?
             </h3>
@@ -120,7 +120,7 @@ export default async function BlogPostPage(
             </p>
             <a
               href="/#servicos"
-              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold transition-all"
+              className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-all"
             >
               <Icon icon="solar:chat-round-line-linear" width="18" />
               Falar com um advogado

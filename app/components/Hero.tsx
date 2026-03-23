@@ -22,20 +22,20 @@ export default function Hero() {
       </div>
       <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10 w-full">
           <div className="fade-in visible">
-            <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 bg-primary-50 border border-primary-100 text-primary-700 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+              <span className="w-1.5 h-1.5 bg-primary-500 rounded-full animate-pulse"></span>
               {HERO_CONTENT.badge}
             </div>
             <h1 className="sm:text-5xl lg:text-6xl leading-tight text-4xl font-semibold text-slate-900 tracking-tight mb-6">
               {HERO_CONTENT.title_prefix}<br /> 
-              <span className="text-indigo-600">{HERO_CONTENT.title_highlight}</span> <br /> 
+              <span className="text-primary-600">{HERO_CONTENT.title_highlight}</span> <br /> 
               {HERO_CONTENT.title_suffix}
             </h1>
             <p className="leading-relaxed text-lg text-slate-500 max-w-lg mb-8">
               {HERO_CONTENT.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <a href="/atendimento" className="pulse-cta inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-7 py-3.5 rounded-xl transition-all text-sm">
+              <a href="/atendimento" className="pulse-cta inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-medium px-7 py-3.5 rounded-xl transition-all text-sm">
                 <Icon icon="solar:chat-round-dots-linear" width="18" />
                 {HERO_CONTENT.cta_primary}
               </a>
@@ -47,7 +47,7 @@ export default function Hero() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-1.5">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-indigo-100 border-2 border-white flex items-center justify-center text-xs font-medium text-indigo-700">
+                  <div className="w-8 h-8 rounded-full bg-primary-100 border-2 border-white flex items-center justify-center text-xs font-medium text-primary-700">
                     J
                   </div>
                   <div className="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-xs font-medium text-amber-700">

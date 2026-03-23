@@ -3,7 +3,12 @@
     "allow": [
       "Bash(grep -E \"\\(^[^/]*$|package\\\\.json|tsconfig\\)\")",
       "mcp__claude_ai_Supabase__list_projects",
-      "Bash(find /c/DEV/DOPPIA/advocacia-simplificada -type f -name *.sql -o -name *migration*)"
+      "Bash(find /c/DEV/DOPPIA/advocacia-simplificada -type f -name *.sql -o -name *migration*)",
+      "Bash(grep -roh indigo-[0-9]+ /c/DEV/DOPPIA/advocacia-simplificada/app)",
+      "Bash(ls -la /c/DEV/DOPPIA/advocacia-simplificada/*.*)",
+      "WebFetch(domain:api.iconify.design)",
+      "Bash(xargs grep:*)",
+      "Bash(xargs sed:*)"
     ]
   }
 }

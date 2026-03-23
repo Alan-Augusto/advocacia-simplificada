@@ -14,7 +14,7 @@ export default function FAQ() {
     <section id="faq" className="py-20 md:py-28 bg-white">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16 fade-in visible">
-          <span className="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+          <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
             Perguntas Frequentes
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">

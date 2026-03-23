@@ -50,7 +50,7 @@ export default function ServiceSelection({ onSelectService }: ServiceSelectionPr
             <button
               key={service.id || service.code}
               onClick={() => onSelectService(service)}
-              className="group relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-indigo-500 transition-all text-left hover:-translate-y-0.5"
+              className="group relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-primary-500 transition-all text-left hover:-translate-y-0.5"
             >
               {/* Note: Dynamic class names need to be safelisted in Tailwind config if not used elsewhere */}
               <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mr-4 bg-${service.colorClass || service.color_class}-50 text-${service.colorClass || service.color_class}-600 group-hover:scale-110 transition-transform`}>
@@ -60,7 +60,7 @@ export default function ServiceSelection({ onSelectService }: ServiceSelectionPr
                 <h3 className="font-semibold text-slate-900 md:text-lg">{service.title}</h3>
                 <p className="text-xs md:text-sm text-slate-500 line-clamp-1">{service.description}</p>
               </div>
-              <div className="absolute right-4 text-slate-300 group-hover:text-indigo-500 transition-colors">
+              <div className="absolute right-4 text-slate-300 group-hover:text-primary-500 transition-colors">
                 <Icon icon="solar:alt-arrow-right-linear" width="24" className="md:w-6 md:h-6" />
               </div>
             </button>

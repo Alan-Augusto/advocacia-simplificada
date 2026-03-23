@@ -132,7 +132,7 @@ export default function AgendaContent() {
             <h3 className="text-sm font-semibold text-slate-900">Calendário</h3>
             <button
               onClick={() => setIsAddSlotsOpen(true)}
-              className="flex items-center gap-1.5 text-xs font-medium bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition-all"
+              className="flex items-center gap-1.5 text-xs font-medium bg-primary-600 hover:bg-primary-700 text-white px-3 py-1.5 rounded-lg transition-all"
             >
               <Icon icon="solar:add-circle-bold" width="14" />
               Adicionar Horários
@@ -141,7 +141,7 @@ export default function AgendaContent() {
 
           {loadingSlots ? (
             <div className="flex items-center justify-center py-8">
-              <Icon icon="solar:refresh-linear" className="animate-spin text-indigo-500" width="24" />
+              <Icon icon="solar:refresh-linear" className="animate-spin text-primary-500" width="24" />
             </div>
           ) : (
             <AgendaCalendar
@@ -222,7 +222,7 @@ export default function AgendaContent() {
                 onClick={() => setAppointmentFilter(f)}
                 className={`pb-2 px-3 text-xs font-medium whitespace-nowrap border-b-2 transition-all -mb-px ${
                   appointmentFilter === f
-                    ? 'border-indigo-600 text-indigo-600'
+                    ? 'border-primary-600 text-primary-600'
                     : 'border-transparent text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -236,7 +236,7 @@ export default function AgendaContent() {
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {loadingApps ? (
             <div className="flex items-center justify-center py-12">
-              <Icon icon="solar:refresh-linear" className="animate-spin text-indigo-500" width="24" />
+              <Icon icon="solar:refresh-linear" className="animate-spin text-primary-500" width="24" />
             </div>
           ) : filteredAppointments.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center">

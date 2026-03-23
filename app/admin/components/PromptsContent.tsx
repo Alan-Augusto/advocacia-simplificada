@@ -72,7 +72,7 @@ export default function PromptsContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Icon icon="solar:refresh-linear" width="28" className="text-indigo-600 animate-spin" />
+        <Icon icon="solar:refresh-linear" width="28" className="text-primary-600 animate-spin" />
       </div>
     );
   }
@@ -85,7 +85,7 @@ export default function PromptsContent() {
           onClick={() => setActiveTab('base')}
           className={`px-5 py-2.5 rounded-lg font-medium text-sm transition-all ${
             activeTab === 'base'
-              ? 'bg-indigo-600 text-white shadow-sm'
+              ? 'bg-primary-600 text-white shadow-sm'
               : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
           }`}
         >
@@ -95,7 +95,7 @@ export default function PromptsContent() {
           onClick={() => setActiveTab('service')}
           className={`px-5 py-2.5 rounded-lg font-medium text-sm transition-all ${
             activeTab === 'service'
-              ? 'bg-indigo-600 text-white shadow-sm'
+              ? 'bg-primary-600 text-white shadow-sm'
               : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
           }`}
         >
@@ -119,7 +119,7 @@ export default function PromptsContent() {
                 {editingPrompt?.id !== basePrompt.id && (
                   <button
                     onClick={() => handleEdit(basePrompt)}
-                    className="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
+                    className="bg-primary-50 hover:bg-primary-100 text-primary-600 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
                   >
                     <Icon icon="solar:pen-linear" width="16" />
                     Editar
@@ -132,7 +132,7 @@ export default function PromptsContent() {
                   <textarea
                     value={editContent}
                     onChange={(e) => setEditContent(e.target.value)}
-                    className="w-full h-80 px-4 py-3 rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all font-mono text-sm resize-none"
+                    className="w-full h-80 px-4 py-3 rounded-lg border border-slate-200 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all font-mono text-sm resize-none"
                   />
                   <div className="flex items-center justify-between text-sm text-slate-500">
                     <span>{editContent.length} caracteres</span>
@@ -146,7 +146,7 @@ export default function PromptsContent() {
                       <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all"
+                        className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all"
                       >
                         {saving ? (
                           <>
@@ -196,7 +196,7 @@ export default function PromptsContent() {
                       {editingPrompt?.id !== prompt.id && (
                         <button
                           onClick={() => handleEdit(prompt)}
-                          className="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
+                          className="bg-primary-50 hover:bg-primary-100 text-primary-600 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
                         >
                           <Icon icon="solar:pen-linear" width="16" />
                           Editar
@@ -209,7 +209,7 @@ export default function PromptsContent() {
                         <textarea
                           value={editContent}
                           onChange={(e) => setEditContent(e.target.value)}
-                          className="w-full h-40 px-4 py-3 rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all font-mono text-sm resize-none"
+                          className="w-full h-40 px-4 py-3 rounded-lg border border-slate-200 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all font-mono text-sm resize-none"
                         />
                         <div className="flex items-center justify-between text-sm text-slate-500">
                           <span>{editContent.length} caracteres</span>
@@ -223,7 +223,7 @@ export default function PromptsContent() {
                             <button
                               onClick={handleSave}
                               disabled={saving}
-                              className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all"
+                              className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all"
                             >
                               {saving ? (
                                 <>

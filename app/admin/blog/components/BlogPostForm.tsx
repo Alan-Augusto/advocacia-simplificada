@@ -17,7 +17,7 @@ interface BlogPostFormProps {
 const colorOptions = [
   { value: 'amber', label: 'Amber', className: 'bg-amber-500' },
   { value: 'teal', label: 'Teal', className: 'bg-teal-500' },
-  { value: 'indigo', label: 'Indigo', className: 'bg-indigo-500' },
+  { value: 'indigo', label: 'Indigo', className: 'bg-primary-500' },
   { value: 'emerald', label: 'Emerald', className: 'bg-emerald-500' },
   { value: 'blue', label: 'Blue', className: 'bg-blue-500' },
   { value: 'rose', label: 'Rose', className: 'bg-rose-500' },
@@ -47,7 +47,7 @@ function ToolbarButton({
       title={title}
       className={`w-8 h-8 flex items-center justify-center rounded-md transition-all ${
         active
-          ? 'bg-indigo-100 text-indigo-700'
+          ? 'bg-primary-100 text-primary-700'
           : 'text-slate-600 hover:bg-slate-100'
       }`}
     >
@@ -86,7 +86,7 @@ function EditorToolbar({ editor }: { editor: ReturnType<typeof useEditor> }) {
         onClick={() => editor.chain().focus().toggleUnderline().run()}
         active={editor.isActive('underline')}
         title="Sublinhado"
-        icon="solar:text-underline-square-linear"
+        icon="solar:text-underline-linear"
       />
 
       <div className="w-px h-5 bg-slate-300 mx-1" />
@@ -125,7 +125,7 @@ function EditorToolbar({ editor }: { editor: ReturnType<typeof useEditor> }) {
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         active={editor.isActive('blockquote')}
         title="Citação"
-        icon="solar:quote-up-square-linear"
+        icon="solar:chat-square-linear"
       />
       <ToolbarButton
         onClick={setLink}
@@ -140,19 +140,19 @@ function EditorToolbar({ editor }: { editor: ReturnType<typeof useEditor> }) {
         onClick={() => editor.chain().focus().setTextAlign('left').run()}
         active={editor.isActive({ textAlign: 'left' })}
         title="Alinhar à esquerda"
-        icon="solar:text-align-left-linear"
+        icon="solar:align-left-linear"
       />
       <ToolbarButton
         onClick={() => editor.chain().focus().setTextAlign('center').run()}
         active={editor.isActive({ textAlign: 'center' })}
         title="Centralizar"
-        icon="solar:text-align-center-linear"
+        icon="solar:align-horizontal-center-linear"
       />
       <ToolbarButton
         onClick={() => editor.chain().focus().setTextAlign('right').run()}
         active={editor.isActive({ textAlign: 'right' })}
         title="Alinhar à direita"
-        icon="solar:text-align-right-linear"
+        icon="solar:align-right-linear"
       />
     </div>
   );
@@ -275,7 +275,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               value={formData.slug}
               onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
               placeholder="Ex: /direitos-trabalhistas"
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
               required
             />
             <p className="text-xs text-slate-400 mt-1">Deve começar com / e usar apenas letras minúsculas e hífens.</p>
@@ -291,7 +291,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
               placeholder="Ex: Rescisão de Contrato de Trabalho"
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
               required
             />
           </div>
@@ -306,7 +306,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               placeholder="Breve descrição do artigo..."
               rows={2}
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
               required
             />
           </div>
@@ -316,7 +316,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
             <label className="block text-sm font-medium text-slate-700 mb-2">
               Conteúdo do artigo
             </label>
-            <div className="border border-slate-300 rounded-lg overflow-hidden focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/20 transition-all">
+            <div className="border border-slate-300 rounded-lg overflow-hidden focus-within:border-primary-500 focus-within:ring-2 focus-within:ring-primary-500/20 transition-all">
               <EditorToolbar editor={editor} />
               <EditorContent editor={editor} />
             </div>
@@ -332,7 +332,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               value={formData.tags}
               onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
               placeholder="Ex: Justa causa, Rescisão indireta, CLT"
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
             />
           </div>
 
@@ -342,9 +342,9 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               Ícone <span className="text-red-500">*</span>
             </label>
             {formData.icon && (
-              <div className="flex items-center gap-3 mb-3 p-3 bg-indigo-50 border border-indigo-200 rounded-lg">
-                <Icon icon={formData.icon} width="28" className="text-indigo-600" />
-                <span className="text-sm font-medium text-indigo-700">{formData.icon}</span>
+              <div className="flex items-center gap-3 mb-3 p-3 bg-primary-50 border border-primary-200 rounded-lg">
+                <Icon icon={formData.icon} width="28" className="text-primary-600" />
+                <span className="text-sm font-medium text-primary-700">{formData.icon}</span>
               </div>
             )}
             <div className="relative mb-3">
@@ -354,7 +354,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
                 value={iconSearch}
                 onChange={(e) => setIconSearch(e.target.value)}
                 placeholder="Buscar ícones (ex: document, shield, clock...)"
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all text-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-sm"
               />
               {iconLoading && (
                 <Icon icon="solar:refresh-linear" width="18" className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 animate-spin" />
@@ -370,7 +370,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
                     title={icon}
                     className={`p-3 rounded-lg border-2 transition-all ${
                       formData.icon === icon
-                        ? 'border-indigo-500 bg-indigo-50 text-indigo-600'
+                        ? 'border-primary-500 bg-primary-50 text-primary-600'
                         : 'border-slate-200 hover:border-slate-300 text-slate-600'
                     }`}
                   >
@@ -421,7 +421,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
                 type="number"
                 value={formData.order}
                 onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
-                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
               />
             </div>
             <div className="flex flex-col justify-end">
@@ -431,7 +431,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
                 onClick={() => setFormData({ ...formData, highlight: !formData.highlight })}
                 className={`px-5 py-2.5 rounded-lg border-2 font-medium flex items-center gap-2 transition-all ${
                   formData.highlight
-                    ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
+                    ? 'border-primary-500 bg-primary-50 text-primary-700'
                     : 'border-slate-200 text-slate-600'
                 }`}
               >
@@ -454,7 +454,7 @@ export default function BlogPostForm({ post, onClose }: BlogPostFormProps) {
           <button
             onClick={handleSubmit}
             disabled={saving}
-            className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all"
+            className="flex-1 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all"
           >
             {saving ? (
               <>

@@ -3,7 +3,7 @@ import { TESTIMONIALS } from "../data/content";
 
 // Map for color classes to ensure Tailwind safe-listing
 const colorMap: Record<string, { bg: string, text: string, icon: string }> = {
-  indigo: { bg: "bg-indigo-100", text: "text-indigo-700", icon: "#4f46e5" },
+  indigo: { bg: "bg-primary-100", text: "text-primary-700", icon: "var(--color-primary-600)" },
   amber: { bg: "bg-amber-100", text: "text-amber-700", icon: "#d97706" },
   emerald: { bg: "bg-emerald-100", text: "text-emerald-700", icon: "#059669" },
   rose: { bg: "bg-rose-100", text: "text-rose-700", icon: "#e11d48" },
@@ -16,7 +16,7 @@ export default function Testimonials() {
     <section id="depoimentos" className="py-20 md:py-28 bg-slate-50/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 fade-in visible">
-          <span className="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+          <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
             Depoimentos
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">

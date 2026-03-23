@@ -10,7 +10,7 @@ interface ServiceFormProps {
 }
 
 const colorOptions = [
-  { value: 'indigo', label: 'Indigo', className: 'bg-indigo-500' },
+  { value: 'indigo', label: 'Indigo', className: 'bg-primary-500' },
   { value: 'emerald', label: 'Emerald', className: 'bg-emerald-500' },
   { value: 'blue', label: 'Blue', className: 'bg-blue-500' },
   { value: 'violet', label: 'Violet', className: 'bg-violet-500' },
@@ -153,7 +153,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
               value={formData.code}
               onChange={(e) => setFormData({ ...formData, code: e.target.value })}
               placeholder="Ex: 01, 02, 10..."
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
               required
             />
           </div>
@@ -168,7 +168,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
               placeholder="Ex: Vínculo de Emprego"
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
               required
             />
           </div>
@@ -183,7 +183,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               placeholder="Descreva brevemente o serviço..."
               rows={3}
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
               required
             />
           </div>
@@ -198,7 +198,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
               value={formData.tags}
               onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
               placeholder="Ex: Carteira assinada, Freelancer, Regularização"
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
             />
           </div>
 
@@ -210,9 +210,9 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
 
             {/* Selected icon preview */}
             {formData.icon && (
-              <div className="flex items-center gap-3 mb-3 p-3 bg-indigo-50 border border-indigo-200 rounded-lg">
-                <Icon icon={formData.icon} width="28" className="text-indigo-600" />
-                <span className="text-sm font-medium text-indigo-700">{formData.icon}</span>
+              <div className="flex items-center gap-3 mb-3 p-3 bg-primary-50 border border-primary-200 rounded-lg">
+                <Icon icon={formData.icon} width="28" className="text-primary-600" />
+                <span className="text-sm font-medium text-primary-700">{formData.icon}</span>
               </div>
             )}
 
@@ -228,7 +228,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
                 value={iconSearch}
                 onChange={(e) => setIconSearch(e.target.value)}
                 placeholder="Buscar ícones (ex: home, document, user...)"
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all text-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-sm"
               />
               {iconLoading && (
                 <Icon
@@ -250,7 +250,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
                     title={icon}
                     className={`p-3 rounded-lg border-2 transition-all ${
                       formData.icon === icon
-                        ? 'border-indigo-500 bg-indigo-50 text-indigo-600'
+                        ? 'border-primary-500 bg-primary-50 text-primary-600'
                         : 'border-slate-200 hover:border-slate-300 text-slate-600'
                     }`}
                   >
@@ -308,7 +308,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
               type="number"
               value={formData.order}
               onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
             />
           </div>
 
@@ -322,7 +322,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
               onChange={(e) => setFormData({ ...formData, initial_message: e.target.value })}
               placeholder="Primeira mensagem enviada quando o usuário escolhe este serviço..."
               rows={4}
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
               required
             />
           </div>
@@ -340,7 +340,7 @@ export default function ServiceForm({ service, onClose }: ServiceFormProps) {
           <button
             onClick={handleSubmit}
             disabled={saving}
-            className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all"
+            className="flex-1 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all"
           >
             {saving ? (
               <>

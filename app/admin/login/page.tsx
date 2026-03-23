@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-50" />
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary-100 rounded-full blur-3xl opacity-50" />
         <div className="absolute top-40 -left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50" />
       </div>
 
@@ -46,8 +46,8 @@ export default function AdminLoginPage() {
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
           {/* Logo/Title */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Icon icon="solar:shield-keyhole-bold" width="32" className="text-indigo-600" />
+            <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Icon icon="solar:shield-keyhole-bold" width="32" className="text-primary-600" />
             </div>
             <h1 className="text-2xl font-semibold text-slate-900 mb-2">
               Área de Admin
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
                   placeholder="Digite sua senha"
                   required
                 />
@@ -89,7 +89,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 disabled:hover:translate-y-0"
+              className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white font-semibold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5 disabled:hover:translate-y-0"
             >
               {loading ? (
                 <>

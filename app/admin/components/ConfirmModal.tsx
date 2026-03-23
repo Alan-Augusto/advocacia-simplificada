@@ -42,10 +42,10 @@ const variantConfig: Record<
   },
   info: {
     icon: "solar:info-circle-bold",
-    iconBg: "bg-indigo-50",
-    iconColor: "text-indigo-500",
+    iconBg: "bg-primary-50",
+    iconColor: "text-primary-500",
     confirmBtn:
-      "bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 text-white",
+      "bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 text-white",
   },
 };
 

@@ -40,7 +40,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
             <div key={s.id} className="flex items-center">
               <div className="flex flex-col items-center gap-1.5 md:gap-2">
                 <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border-2 transition-all ${status === 'completed' || status === 'current'
-                    ? 'bg-indigo-600 border-indigo-600 text-white'
+                    ? 'bg-primary-600 border-primary-600 text-white'
                     : 'bg-white border-slate-300 text-slate-400'
                   }`}>
                   {status === 'completed' ? (
@@ -49,13 +49,13 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
                     <span className="text-xs md:text-sm font-bold">{idx + 1}</span>
                   )}
                 </div>
-                <span className={`text-[10px] md:text-xs lg:text-sm font-medium ${status === 'current' ? 'text-indigo-600' : 'text-slate-500'
+                <span className={`text-[10px] md:text-xs lg:text-sm font-medium ${status === 'current' ? 'text-primary-600' : 'text-slate-500'
                   }`}>
                   {s.label}
                 </span>
               </div>
               {idx < steps.length - 1 && (
-                <div className={`w-12 sm:w-16 md:w-20 h-0.5 mx-2 mb-5 md:mb-6 transition-all ${isCompleted ? 'bg-indigo-600' : 'bg-slate-200'}`} />
+                <div className={`w-12 sm:w-16 md:w-20 h-0.5 mx-2 mb-5 md:mb-6 transition-all ${isCompleted ? 'bg-primary-600' : 'bg-slate-200'}`} />
               )}
             </div>
           )

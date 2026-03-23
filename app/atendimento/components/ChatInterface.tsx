@@ -112,14 +112,14 @@ export default function ChatInterface({
           >
             {/* Avatar do Assistente - Desktop */}
             {msg.role === "assistant" && (
-              <div className="hidden md:flex w-8 h-8 rounded-full items-center justify-center shadow-md bg-indigo-100 text-indigo-600 flex-shrink-0">
+              <div className="hidden md:flex w-8 h-8 rounded-full items-center justify-center shadow-md bg-primary-100 text-primary-600 flex-shrink-0">
                 <Icon icon="mdi:sparkles" width="16" />
               </div>
             )}
 
             <div
               className={`max-w-[85%] sm:max-w-[75%] md:max-w-[65%] rounded-2xl px-5 py-3.5 text-sm sm:text-base leading-relaxed shadow-sm ${msg.role === "user"
-                  ? "bg-indigo-600 text-white rounded-br-none"
+                  ? "bg-primary-600 text-white rounded-br-none"
                   : "bg-slate-50 border border-slate-200 text-slate-700 rounded-bl-none"
                 }`}
             >
@@ -165,14 +165,14 @@ export default function ChatInterface({
             <div className="flex flex-col gap-2">
               <button
                 onClick={handleContactClick}
-                className="flex items-center justify-center gap-2 w-full border border-indigo-300 text-indigo-700 font-semibold px-5 py-3 rounded-xl hover:bg-indigo-50 transition-all"
+                className="flex items-center justify-center gap-2 w-full border border-primary-300 text-primary-700 font-semibold px-5 py-3 rounded-xl hover:bg-primary-50 transition-all"
               >
                 <Icon icon="solar:phone-calling-rounded-linear" width="20" />
                 Receber contato nas próximas horas
               </button>
               <button
                 onClick={() => setIsSchedulingOpen(true)}
-                className="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-md hover:shadow-indigo-500/25 hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-md hover:shadow-primary-500/25 hover:-translate-y-0.5"
               >
                 <Icon icon="solar:calendar-broken" width="20" />
                 Agendar horário com o Dr. Luciano
@@ -209,7 +209,7 @@ export default function ChatInterface({
                 onKeyDown={handleKeyDown}
                 placeholder="Digite sua resposta..."
                 rows={1}
-                className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-slate-900 placeholder:text-slate-400 resize-none min-h-[48px] max-h-[120px]"
+                className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all text-slate-900 placeholder:text-slate-400 resize-none min-h-[48px] max-h-[120px]"
                 disabled={loading}
                 autoFocus
                 style={{ height: 'auto', minHeight: '48px' }}
@@ -223,7 +223,7 @@ export default function ChatInterface({
             <button
               onClick={handleSend}
               disabled={loading || !input.trim()}
-              className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white rounded-xl w-12 h-12 flex items-center justify-center transition-all shadow-md active:scale-95"
+              className="bg-primary-600 hover:bg-primary-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white rounded-xl w-12 h-12 flex items-center justify-center transition-all shadow-md active:scale-95"
             >
               <Icon icon="solar:plain-3-bold-duotone" width="24" />
             </button>

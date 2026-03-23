@@ -22,7 +22,7 @@ const STATUS_LABELS: Record<LeadStatus, string> = {
 };
 
 const STATUS_ACCENT: Record<LeadStatus, string> = {
-  em_andamento: 'bg-indigo-500',
+  em_andamento: 'bg-primary-500',
   quente: 'bg-emerald-500',
   agendado: 'bg-teal-500',
   frio: 'bg-slate-400',
@@ -105,7 +105,7 @@ export default function KanbanBoard({ leads, onLeadClick, onLeadMove }: KanbanBo
                 className={`
                   flex flex-col rounded-lg p-3 h-full min-h-[200px]
                   transition-all duration-200
-                  ${isOver ? 'ring-2 ring-indigo-400 bg-indigo-50/70' : 'bg-slate-100/70'}
+                  ${isOver ? 'ring-2 ring-primary-400 bg-primary-50/70' : 'bg-slate-100/70'}
                 `}
               >
                 {/* Column header */}
@@ -168,7 +168,7 @@ function KanbanCard({
       onClick={onClick}
       className={`
         w-full bg-white rounded-lg border border-slate-200 p-3
-        hover:shadow-md hover:border-indigo-300
+        hover:shadow-md hover:border-primary-300
         transition-all duration-150 cursor-move
         ${isDragging ? 'opacity-50 scale-95' : ''}
       `}

@@ -8,7 +8,7 @@ interface LeadCardProps {
 }
 
 const statusColors = {
-  em_andamento: { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' },
+  em_andamento: { bg: 'bg-primary-50', text: 'text-primary-700', border: 'border-primary-200' },
   quente: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
   agendado: { bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-200' },
   frio: { bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200' },
@@ -51,13 +51,13 @@ export default function LeadCard({ lead, onClick }: LeadCardProps) {
   return (
     <button
       onClick={onClick}
-      className="bg-white rounded-lg border border-slate-200 p-3 hover:shadow-md hover:border-indigo-300 transition-all text-left group"
+      className="bg-white rounded-lg border border-slate-200 p-3 hover:shadow-md hover:border-primary-300 transition-all text-left group"
     >
       {/* Header */}
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <h3 className="text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+            <h3 className="text-sm font-semibold text-slate-900 group-hover:text-primary-600 transition-colors line-clamp-1">
               {lead.name}
             </h3>
           </div>
@@ -90,7 +90,7 @@ export default function LeadCard({ lead, onClick }: LeadCardProps) {
           <Icon icon="solar:clock-circle-linear" width="12" />
           <span>{formatDate(lead.last_message_at)}</span>
         </div>
-        <div className="flex items-center gap-1 text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="flex items-center gap-1 text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity">
           <span className="text-xs">Ver</span>
           <Icon icon="solar:alt-arrow-right-linear" width="12" />
         </div>

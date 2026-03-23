@@ -21,8 +21,8 @@ export default function ContactRequestModal({ isOpen, leadName, onClose }: Conta
         onClick={(e) => e.stopPropagation()}
       >
         {/* Icon */}
-        <div className="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-100">
-          <Icon icon="solar:bell-bing-bold" className="text-indigo-600" width="28" />
+        <div className="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-primary-100">
+          <Icon icon="solar:bell-bing-bold" className="text-primary-600" width="28" />
         </div>
 
         {/* Content */}
@@ -36,7 +36,7 @@ export default function ContactRequestModal({ isOpen, leadName, onClose }: Conta
         {/* Action */}
         <button
           onClick={onClose}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-all"
+          className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 rounded-xl transition-all"
         >
           Entendi
         </button>

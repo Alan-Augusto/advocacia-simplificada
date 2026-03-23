@@ -59,7 +59,7 @@ export default function ServicesContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Icon icon="solar:refresh-linear" width="28" className="text-indigo-600 animate-spin" />
+        <Icon icon="solar:refresh-linear" width="28" className="text-primary-600 animate-spin" />
       </div>
     );
   }
@@ -75,7 +75,7 @@ export default function ServicesContent() {
           <p className="text-sm text-slate-500 mb-6">Comece adicionando seu primeiro serviço</p>
           <button
             onClick={handleNew}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all"
+            className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all"
           >
             <Icon icon="solar:add-circle-linear" width="18" />
             Novo Serviço
@@ -171,7 +171,7 @@ export function ServicesActions({ onNew }: { onNew: () => void }) {
   return (
     <button
       onClick={onNew}
-      className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all shadow-sm"
+      className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all shadow-sm"
     >
       <Icon icon="solar:add-circle-linear" width="18" />
       Novo Serviço

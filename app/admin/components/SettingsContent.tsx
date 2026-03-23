@@ -53,7 +53,7 @@ export default function SettingsContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Icon icon="solar:refresh-linear" width="28" className="text-indigo-600 animate-spin" />
+        <Icon icon="solar:refresh-linear" width="28" className="text-primary-600 animate-spin" />
       </div>
     );
   }
@@ -77,7 +77,7 @@ export default function SettingsContent() {
                 value={settings.whatsapp_number || ''}
                 onChange={(e) => handleChange('whatsapp_number', e.target.value)}
                 placeholder="5511999999999"
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all text-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all text-sm"
               />
             </div>
             <p className="text-xs text-slate-500 mt-1.5">
@@ -105,7 +105,7 @@ export default function SettingsContent() {
             <button
               type="submit"
               disabled={saving}
-              className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white px-5 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2 transition-all shadow-sm"
+              className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-5 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2 transition-all shadow-sm"
             >
               {saving ? (
                 <>

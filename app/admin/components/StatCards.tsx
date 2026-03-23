@@ -10,8 +10,8 @@ export default function StatCards({ stats }: StatCardsProps) {
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="bg-white rounded-lg border border-slate-200 p-3">
         <div className="flex items-center gap-2 mb-1">
-          <div className="w-7 h-7 bg-indigo-50 rounded-md flex items-center justify-center">
-            <Icon icon="solar:users-group-rounded-linear" width="16" className="text-indigo-600" />
+          <div className="w-7 h-7 bg-primary-50 rounded-md flex items-center justify-center">
+            <Icon icon="solar:users-group-rounded-linear" width="16" className="text-primary-600" />
           </div>
           <span className="text-xs font-medium text-slate-600">Total</span>
         </div>

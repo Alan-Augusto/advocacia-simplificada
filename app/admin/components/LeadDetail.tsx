@@ -24,7 +24,7 @@ const statusOptions: Array<{ value: LeadStatus; label: string }> = [
 
 const statusColorMap: Record<LeadStatus, { active: string; base: string }> = {
   em_andamento: {
-    active: 'bg-indigo-100 text-indigo-700 border border-indigo-300',
+    active: 'bg-primary-100 text-primary-700 border border-primary-300',
     base: 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200',
   },
   quente: {
@@ -144,7 +144,7 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
             <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
               <button
                 onClick={() => copyToClipboard(lead.phone)}
-                className="flex items-center gap-1 hover:text-indigo-600 transition-colors"
+                className="flex items-center gap-1 hover:text-primary-600 transition-colors"
                 title="Copiar telefone"
               >
                 <Icon icon="solar:phone-linear" width="14" />
@@ -207,7 +207,7 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
           
           {loading ? (
             <div className="flex items-center justify-center py-12">
-              <Icon icon="solar:refresh-linear" width="28" className="text-indigo-600 animate-spin" />
+              <Icon icon="solar:refresh-linear" width="28" className="text-primary-600 animate-spin" />
             </div>
           ) : messages.length === 0 ? (
             <div className="text-center py-12">
@@ -224,7 +224,7 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
                   <div
                     className={`max-w-[75%] rounded-xl px-3 py-2 ${
                       message.role === 'user'
-                        ? 'bg-indigo-600 text-white rounded-br-sm'
+                        ? 'bg-primary-600 text-white rounded-br-sm'
                         : 'bg-slate-100 text-slate-700 rounded-bl-sm'
                     }`}
                   >

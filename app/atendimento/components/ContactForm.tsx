@@ -55,7 +55,7 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
                 type="text"
                 value={contactInfo.name}
                 onChange={(e) => setContactInfo({ ...contactInfo, name: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
+                className="w-full bg-white border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400"
                 placeholder="Ex: João Silva"
               />
             </div>
@@ -72,7 +72,7 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
                 type="tel"
                 value={contactInfo.phone}
                 onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
+                className="w-full bg-white border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400"
                 placeholder="Ex: (11) 99999-9999"
               />
             </div>
@@ -91,7 +91,7 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
         <button
           type="submit"
           onClick={handleSubmit}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl shadow-lg shadow-indigo-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 rounded-xl shadow-lg shadow-primary-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
         >
           Iniciar Atendimento
           <Icon icon="solar:arrow-right-bold" width="20" />

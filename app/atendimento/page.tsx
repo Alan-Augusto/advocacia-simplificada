@@ -93,7 +93,7 @@ export default function AtendimentoPage() {
     <main className="h-[100dvh] bg-slate-50 relative flex flex-col overflow-hidden">
        {/* Background decoration */}
        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-50" />
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary-100 rounded-full blur-3xl opacity-50" />
           <div className="absolute top-40 -left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50" />
       </div>
 

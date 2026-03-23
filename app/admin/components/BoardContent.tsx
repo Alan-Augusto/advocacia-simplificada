@@ -15,7 +15,7 @@ type ViewMode = 'kanban' | 'list' | 'cards';
 
 const STATUS_FILTER_COLORS: Record<string, { dot: string; bg: string; text: string; activeBg: string }> = {
   all: { dot: 'bg-slate-500', bg: 'hover:bg-slate-50', text: 'text-slate-600', activeBg: 'bg-slate-100 text-slate-900' },
-  em_andamento: { dot: 'bg-indigo-500', bg: 'hover:bg-indigo-50', text: 'text-indigo-600', activeBg: 'bg-indigo-50 text-indigo-700' },
+  em_andamento: { dot: 'bg-primary-500', bg: 'hover:bg-primary-50', text: 'text-primary-600', activeBg: 'bg-primary-50 text-primary-700' },
   quente: { dot: 'bg-emerald-500', bg: 'hover:bg-emerald-50', text: 'text-emerald-600', activeBg: 'bg-emerald-50 text-emerald-700' },
   agendado: { dot: 'bg-teal-500', bg: 'hover:bg-teal-50', text: 'text-teal-600', activeBg: 'bg-teal-50 text-teal-700' },
   frio: { dot: 'bg-slate-400', bg: 'hover:bg-slate-50', text: 'text-slate-500', activeBg: 'bg-slate-100 text-slate-700' },
@@ -135,7 +135,7 @@ export default function BoardContent() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Buscar por nome, telefone..."
-                  className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all"
+                  className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-200 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all"
                 />
                 <Icon
                   icon="solar:magnifer-linear"
@@ -189,14 +189,14 @@ export default function BoardContent() {
                     viewMode === 'kanban'
                       ? 'text-slate-300 cursor-not-allowed'
                       : filterOpen || filterStatus !== 'all'
-                        ? 'text-indigo-600 bg-indigo-50'
+                        ? 'text-primary-600 bg-primary-50'
                         : 'text-slate-500 hover:bg-slate-100'
                   }`}
                   title={viewMode === 'kanban' ? 'Filtro indisponível no Kanban' : 'Filtrar por status'}
                 >
                   <Icon icon="solar:filter-linear" width="18" />
                   {filterStatus !== 'all' && viewMode !== 'kanban' && (
-                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-indigo-500 rounded-full" />
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-primary-500 rounded-full" />
                   )}
                 </button>
               </div>
@@ -238,7 +238,7 @@ export default function BoardContent() {
 function LoadingState() {
   return (
     <div className="flex items-center justify-center h-full">
-      <Icon icon="solar:refresh-linear" width="28" className="text-indigo-600 animate-spin" />
+      <Icon icon="solar:refresh-linear" width="28" className="text-primary-600 animate-spin" />
     </div>
   );
 }

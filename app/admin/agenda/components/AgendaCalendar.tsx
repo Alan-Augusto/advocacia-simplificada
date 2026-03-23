@@ -103,9 +103,9 @@ export default function AgendaCalendar({ slots, selectedDate, onDateSelect }: Ag
               onClick={() => onDateSelect(dateStr)}
               className={`
                 relative w-8 h-8 mx-auto flex flex-col items-center justify-center rounded-full text-xs transition-all
-                ${isSelected ? 'bg-indigo-600 text-white font-semibold shadow-sm' :
+                ${isSelected ? 'bg-primary-600 text-white font-semibold shadow-sm' :
                   past ? 'text-slate-300 cursor-default' :
-                  hasAvailable ? 'text-slate-700 font-medium hover:bg-indigo-50' :
+                  hasAvailable ? 'text-slate-700 font-medium hover:bg-primary-50' :
                   allBooked ? 'text-slate-500 hover:bg-amber-50' :
                   'text-slate-400 hover:bg-slate-50'}
               `}

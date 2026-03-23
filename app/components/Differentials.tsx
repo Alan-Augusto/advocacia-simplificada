@@ -7,7 +7,7 @@ export default function Differentials() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="fade-in visible">
-            <span className="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+            <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
               Diferenciais
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-6">
@@ -24,8 +24,8 @@ export default function Differentials() {
             <div className="space-y-6">
               {DIFFERENTIALS.map((diff, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
-                    <Icon icon={diff.icon} width="20" className="text-indigo-600" />
+                  <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+                    <Icon icon={diff.icon} width="20" className="text-primary-600" />
                   </div>
                   <div>
                     <h3 className="font-medium text-sm text-slate-900 mb-1">
@@ -42,7 +42,7 @@ export default function Differentials() {
 
           <div className="fade-in visible">
             <div className="bg-slate-900 rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl"></div>
               <div className="relative">
                 <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full mb-8">
                   <Icon icon="solar:chat-round-dots-linear" width="14" />
@@ -56,7 +56,7 @@ export default function Differentials() {
                     <div key={index} className="flex gap-4">
                       {index < STEPS.length - 1 ? (
                         <div className="flex flex-col items-center">
-                          <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-semibold">
+                          <div className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center text-xs font-semibold">
                             {step.number}
                           </div>
                           <div className="w-0.5 h-full bg-white/10 mt-2"></div>

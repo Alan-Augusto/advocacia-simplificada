@@ -33,7 +33,7 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
             <span className="text-white font-semibold text-sm tracking-tight">
               DL
             </span>
@@ -77,7 +77,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href="/atendimento"
-            className="hidden sm:inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all"
+            className="hidden sm:inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all"
           >
             Consulta Gratuita
             <Icon icon="solar:arrow-right-linear" width="16" />
@@ -134,7 +134,7 @@ export default function Header() {
             </a>
             <a
               href="/atendimento"
-              className="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg mt-2"
+              className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg mt-2"
             >
               Consulta Gratuita
             </a>

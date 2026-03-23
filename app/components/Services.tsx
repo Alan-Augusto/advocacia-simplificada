@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { SERVICES, SPECIAL_SERVICE } from "../data/content";
 
 const colorMap: Record<string, { bg: string, text: string, hoverBg: string }> = {
-  indigo: { bg: "bg-indigo-50", text: "text-indigo-600", hoverBg: "group-hover:bg-indigo-100" },
+  indigo: { bg: "bg-primary-50", text: "text-primary-600", hoverBg: "group-hover:bg-primary-100" },
   emerald: { bg: "bg-emerald-50", text: "text-emerald-600", hoverBg: "group-hover:bg-emerald-100" },
   blue: { bg: "bg-blue-50", text: "text-blue-600", hoverBg: "group-hover:bg-blue-100" },
   violet: { bg: "bg-violet-50", text: "text-violet-600", hoverBg: "group-hover:bg-violet-100" },
@@ -18,7 +18,7 @@ export default function Services() {
     <section id="servicos" className="py-20 md:py-28 bg-slate-50/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16 fade-in visible">
-          <span className="text-xs font-medium text-indigo-600 uppercase tracking-widest mb-4 block">
+          <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
             Áreas de Atuação
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
@@ -33,10 +33,10 @@ export default function Services() {
         </div>
 
         {/* Special Service Card */}
-        <div className="card-hover bg-indigo-50 rounded-2xl p-6 md:p-8 border border-indigo-200 mb-6 fade-in visible">
+        <div className="card-hover bg-primary-50 rounded-2xl p-6 md:p-8 border border-primary-200 mb-6 fade-in visible">
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-medium px-2.5 py-1 rounded-full mb-4">
+              <div className="inline-flex items-center gap-1.5 bg-primary-600 text-white text-xs font-medium px-2.5 py-1 rounded-full mb-4">
                 <Icon icon="solar:star-bold" width="10" />
                 {SPECIAL_SERVICE.badge}
               </div>
@@ -48,19 +48,19 @@ export default function Services() {
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {SPECIAL_SERVICE.tags.map((tag, i) => (
-                  <span key={i} className="text-xs bg-white text-indigo-700 font-medium px-2.5 py-1 rounded-lg border border-indigo-200">
+                  <span key={i} className="text-xs bg-white text-primary-700 font-medium px-2.5 py-1 rounded-lg border border-primary-200">
                     {tag}
                   </span>
                 ))}
               </div>
-              <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20saber%20sobre%20rescisão%20indireta." className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all">
+              <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20saber%20sobre%20rescisão%20indireta." className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all">
                 <Icon icon="solar:chat-round-dots-linear" width="16" />
                 {SPECIAL_SERVICE.cta}
               </a>
             </div>
             <div className="space-y-3">
               {SPECIAL_SERVICE.alerts.map((alert, idx) => (
-                <div key={idx} className="bg-white rounded-xl p-4 border border-indigo-100">
+                <div key={idx} className="bg-white rounded-xl p-4 border border-primary-100">
                   <div className="flex items-start gap-3">
                     <Icon icon="solar:danger-triangle-linear" width="18" className="text-amber-500 mt-0.5 flex-shrink-0" />
                     <div>

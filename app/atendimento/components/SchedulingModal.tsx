@@ -186,7 +186,7 @@ export default function SchedulingModal({
             <div>
               {loadingSlots ? (
                 <div className="flex items-center justify-center py-16">
-                  <Icon icon="solar:refresh-linear" className="animate-spin text-indigo-500" width="28" />
+                  <Icon icon="solar:refresh-linear" className="animate-spin text-primary-500" width="28" />
                 </div>
               ) : availableDates.size === 0 ? (
                 <div className="text-center py-12">
@@ -248,8 +248,8 @@ export default function SchedulingModal({
                           }}
                           className={`
                             w-9 h-9 mx-auto flex items-center justify-center rounded-full text-sm transition-all
-                            ${isSelected ? 'bg-indigo-600 text-white font-semibold shadow-md' :
-                              isAvailable && !isPastDay ? 'bg-indigo-50 text-indigo-700 font-medium hover:bg-indigo-100 ring-1 ring-indigo-200' :
+                            ${isSelected ? 'bg-primary-600 text-white font-semibold shadow-md' :
+                              isAvailable && !isPastDay ? 'bg-primary-50 text-primary-700 font-medium hover:bg-primary-100 ring-1 ring-primary-200' :
                               'text-slate-300 cursor-not-allowed'}
                           `}
                         >
@@ -284,8 +284,8 @@ export default function SchedulingModal({
                       className={`
                         flex flex-col items-center justify-center rounded-xl py-3 text-sm font-medium transition-all border
                         ${isSelected
-                          ? 'bg-indigo-600 text-white border-indigo-600 shadow-md'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-indigo-300 hover:bg-indigo-50'}
+                          ? 'bg-primary-600 text-white border-primary-600 shadow-md'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-primary-300 hover:bg-primary-50'}
                       `}
                     >
                       <span className="font-semibold">{formatTime(slot.start_time)}</span>
@@ -300,17 +300,17 @@ export default function SchedulingModal({
           {/* ── Step 3: Confirmation ── */}
           {step === 'confirmation' && selectedDate && selectedSlot && (
             <div>
-              <div className="bg-indigo-50 rounded-xl p-4 mb-5 border border-indigo-100">
+              <div className="bg-primary-50 rounded-xl p-4 mb-5 border border-primary-100">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                    <Icon icon="solar:calendar-broken" className="text-indigo-600" width="18" />
+                  <div className="w-9 h-9 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                    <Icon icon="solar:calendar-broken" className="text-primary-600" width="18" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-slate-800 capitalize">{formatDateLabel(selectedDate)}</p>
                     <p className="text-sm text-slate-600">às {formatTime(selectedSlot.start_time)} · {selectedSlot.duration_minutes} min</p>
                   </div>
                 </div>
-                <div className="border-t border-indigo-100 pt-3 space-y-1">
+                <div className="border-t border-primary-100 pt-3 space-y-1">
                   <p className="text-xs text-slate-600"><span className="font-medium">Nome:</span> {leadName}</p>
                   <p className="text-xs text-slate-600"><span className="font-medium">Assunto:</span> {leadService}</p>
                 </div>
@@ -329,7 +329,7 @@ export default function SchedulingModal({
               <button
                 onClick={handleConfirm}
                 disabled={booking}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md"
+                className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white font-semibold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md"
               >
                 {booking ? (
                   <Icon icon="solar:refresh-linear" className="animate-spin" width="18" />

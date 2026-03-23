@@ -33,7 +33,7 @@ export default function PageContainer({
             <nav className="flex items-center gap-1.5 text-sm mb-3 pl-10 lg:pl-0">
               <Link
                 href="/admin/board"
-                className="text-slate-400 hover:text-indigo-600 transition-colors"
+                className="text-slate-400 hover:text-primary-600 transition-colors"
               >
                 <Icon icon="solar:home-2-linear" width="16" />
               </Link>
@@ -43,7 +43,7 @@ export default function PageContainer({
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="text-slate-500 hover:text-indigo-600 transition-colors"
+                      className="text-slate-500 hover:text-primary-600 transition-colors"
                     >
                       {item.label}
                     </Link>
