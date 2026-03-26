@@ -9,7 +9,7 @@ import FAQ from "./components/FAQ";
 import BlogPreview from "./components/BlogPreview";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import FloatingCTA from "./components/FloatingCTA";
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
       <BlogPreview />
       <CTA />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingCTA />
     </main>
   );
 }
