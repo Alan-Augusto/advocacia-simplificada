@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import { FAQS } from "../data/content";
+import { FAQ_CONTENT, FAQS } from "../data/content";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -15,13 +15,13 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16 fade-in visible">
           <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
-            Perguntas Frequentes
+            {FAQ_CONTENT.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
-            Tire suas dúvidas
+            {FAQ_CONTENT.title}
           </h2>
           <p className="text-base text-slate-500">
-            Respostas para as perguntas mais comuns sobre direitos trabalhistas.
+            {FAQ_CONTENT.description}
           </p>
         </div>
 

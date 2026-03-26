@@ -1,6 +1,6 @@
 "use client";
 import { Icon } from "@iconify/react";
-import { HERO_CONTENT } from "../data/content";
+import { HERO_CONTENT, TESTIMONIALS } from "../data/content";
 
 export default function Hero() {
   return (
@@ -45,22 +45,36 @@ export default function Hero() {
               </a>
             </div>
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-1.5">
+              <a href="#depoimentos" className="flex items-center gap-3 hover:scale-105 transition-transform cursor-pointer">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-primary-100 border-2 border-white flex items-center justify-center text-xs font-medium text-primary-700">
-                    J
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-xs font-medium text-amber-700">
-                    A
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-xs font-medium text-emerald-700">
-                    M
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-rose-100 border-2 border-white flex items-center justify-center text-xs font-medium text-rose-700">
-                    C
-                  </div>
+                  {TESTIMONIALS.slice(0, 4).map((t) => (
+                    <div
+                      key={t.name}
+                      className="w-8 h-8 rounded-full border-2 border-white flex-shrink-0 overflow-hidden bg-slate-200"
+                    >
+                      {t.photo ? (
+                        <img
+                          src={t.photo}
+                          alt={`Foto de ${t.name}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-xs font-semibold text-slate-700">
+                          {t.name
+                            .split(" ")
+                            .filter(Boolean)
+                            .slice(0, 2)
+                            .map((part) => part[0])
+                            .join("")
+                            .toUpperCase()}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
-                <div className="ml-2">
+                <div>
                   <div className="flex items-center gap-0.5">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Icon key={i} icon="solar:star-bold" width="12" style={{ color: "#f59e0b" }} />
@@ -68,7 +82,7 @@ export default function Hero() {
                   </div>
                   <p className="text-xs text-slate-400 mt-0.5">{HERO_CONTENT.rating_text}</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
       </div>

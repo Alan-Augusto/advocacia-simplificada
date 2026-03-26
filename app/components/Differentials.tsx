@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { DIFFERENTIALS, STEPS } from "../data/content";
+import { DIFFERENTIALS, DIFFERENTIALS_CONTENT, STEPS } from "../data/content";
 
 export default function Differentials() {
   return (
@@ -8,17 +8,13 @@ export default function Differentials() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="fade-in visible">
             <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
-              Diferenciais
+              {DIFFERENTIALS_CONTENT.badge}
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-6">
-              Por que escolher o
-              <br />
-              Dr. Luciano?
+              {DIFFERENTIALS_CONTENT.title}
             </h2>
             <p className="text-base text-slate-500 leading-relaxed mb-10">
-              Mais do que representar, o objetivo é empoderar cada cliente com
-              conhecimento sobre seus direitos e conduzir cada caso com total
-              dedicação.
+              {DIFFERENTIALS_CONTENT.description}
             </p>
 
             <div className="space-y-6">
@@ -46,10 +42,10 @@ export default function Differentials() {
               <div className="relative">
                 <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full mb-8">
                   <Icon icon="solar:chat-round-dots-linear" width="14" />
-                  Como funciona
+                  {DIFFERENTIALS_CONTENT.process_badge}
                 </div>
                 <h3 className="text-2xl font-semibold tracking-tight mb-8">
-                  Do contato à resolução
+                  {DIFFERENTIALS_CONTENT.process_title}
                 </h3>
                 <div className="space-y-6">
                   {STEPS.map((step, index) => (

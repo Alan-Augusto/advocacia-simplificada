@@ -1,6 +1,6 @@
 "use client";
 import { Icon } from "@iconify/react";
-import { SERVICES, SPECIAL_SERVICE } from "../data/content";
+import { SERVICES, SERVICES_CONTENT, SPECIAL_SERVICE } from "../data/content";
 
 const colorMap: Record<string, { bg: string, text: string, hoverBg: string }> = {
   indigo: { bg: "bg-primary-50", text: "text-primary-600", hoverBg: "group-hover:bg-primary-100" },
@@ -19,16 +19,15 @@ export default function Services() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16 fade-in visible">
           <span className="text-xs font-medium text-primary-600 uppercase tracking-widest mb-4 block">
-            Áreas de Atuação
+            {SERVICES_CONTENT.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
-            Defesa completa dos
+            {SERVICES_CONTENT.title_prefix}
             <br />
-            seus direitos trabalhistas
+            {SERVICES_CONTENT.title_suffix}
           </h2>
           <p className="text-base text-slate-500 leading-relaxed">
-            Atuação abrangente em todas as frentes do Direito do Trabalho, com
-            foco na defesa do empregado.
+            {SERVICES_CONTENT.description}
           </p>
         </div>
 

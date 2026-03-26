@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { FOOTER_CONTENT, FOOTER_NAV_LINKS } from "../data/content";
 
 export default function Footer() {
   return (
@@ -13,58 +14,36 @@ export default function Footer() {
                 </span>
               </div>
               <span className="font-semibold text-base tracking-tight text-slate-900">
-                Dr. Luciano
+                {FOOTER_CONTENT.brand}
               </span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
-              Advocacia Trabalhista Especializada. Defesa dos direitos do
-              trabalhador com atendimento humanizado e resultados comprovados.
+              {FOOTER_CONTENT.description}
             </p>
           </div>
           <div>
-            <h4 className="font-medium text-sm text-slate-900 mb-4">Navegação</h4>
+            <h4 className="font-medium text-sm text-slate-900 mb-4">{FOOTER_CONTENT.navigation_title}</h4>
             <div className="space-y-2.5">
-              <a href="#servicos" className="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                Serviços
-              </a>
-              <a href="#diferenciais" className="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                Diferenciais
-              </a>
-              <a href="#depoimentos" className="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                Depoimentos
-              </a>
-              <a href="#faq" className="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                Dúvidas Frequentes
-              </a>
-              <a href="#blog" className="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                Blog
-              </a>
+              {FOOTER_NAV_LINKS.map((link) => (
+                <a key={link.href} href={link.href} className="block text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
           <div>
-            <h4 className="font-medium text-sm text-slate-900 mb-4">Contato</h4>
-            <div className="space-y-2.5">
-              <a href="https://wa.me/5500000000000" className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                <Icon icon="solar:chat-round-dots-linear" width="16" />
-                WhatsApp
-              </a>
-              <a href="tel:+5500000000000" className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                <Icon icon="solar:phone-linear" width="16" />
-                Telefone
-              </a>
-              <a href="mailto:contato@drlucianoadvocacia.com.br" className="flex items-center gap-2 text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                <Icon icon="solar:letter-linear" width="16" />
-                E-mail
-              </a>
-            </div>
+            <h4 className="font-medium text-sm text-slate-900 mb-4">{FOOTER_CONTENT.contact_title}</h4>
+            <a href="/atendimento" className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-medium px-6 py-3 rounded-lg transition-all text-sm">
+              <Icon icon="solar:chat-round-dots-linear" width="16" />
+              Iniciar Atendimento
+            </a>
           </div>
         </div>
         <div className="border-t border-slate-100 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-400">
-            © 2025 Dr. Luciano — Advocacia Trabalhista. Todos os direitos
-            reservados.
+            {FOOTER_CONTENT.copyright}
           </p>
-          <p className="text-xs text-slate-300">OAB/XX 000.000</p>
+          <p className="text-xs text-slate-300">{FOOTER_CONTENT.oab}</p>
         </div>
       </div>
     </footer>

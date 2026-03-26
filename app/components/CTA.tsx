@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { CTA_CONTENT } from "../data/content";
 
 export default function CTA() {
   return (
@@ -10,29 +11,24 @@ export default function CTA() {
       <div className="max-w-3xl mx-auto px-6 text-center relative z-10 fade-in visible">
         <div className="inline-flex items-center gap-2 bg-white/10 text-white/70 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
           <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-          Atendimento disponível agora
+          {CTA_CONTENT.badge}
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
-          Não deixe seus direitos
+          {CTA_CONTENT.title_prefix}
           <br />
-          passarem em branco.
+          {CTA_CONTENT.title_suffix}
         </h2>
         <p className="text-lg text-white/50 leading-relaxed mb-10 max-w-xl mx-auto">
-          O prazo para buscar seus direitos é limitado. Entre em contato agora
-          para uma consulta gratuita e descubra o que você pode receber.
+          {CTA_CONTENT.description}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a href="/atendimento" className="pulse-cta inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-medium px-8 py-4 rounded-xl transition-all text-sm">
             <Icon icon="solar:chat-round-dots-linear" width="18" />
-            Iniciar Atendimento
-          </a>
-          <a href="tel:+5500000000000" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-medium px-8 py-4 rounded-xl border border-white/10 transition-all text-sm">
-            <Icon icon="solar:phone-linear" width="18" />
-            Ligar Agora
+            {CTA_CONTENT.cta_primary}
           </a>
         </div>
         <p className="text-xs text-white/30 mt-6">
-          Consulta inicial gratuita · Sigilo garantido · Atendimento online
+          {CTA_CONTENT.footnote}
         </p>
       </div>
     </section>
