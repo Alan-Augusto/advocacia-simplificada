@@ -11,6 +11,7 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
   const [hotLeadAction, setHotLeadAction] = useState<HotLeadAction>('idle');
   const [appointment, setAppointment] = useState<Appointment | null>(null);
   const [chatFinished, setChatFinished] = useState(false);
+  const [chatError, setChatError] = useState<string | null>(null);
 
   const saveMessage = async (role: "user" | "assistant", content: string) => {
     if (!leadId) return;
@@ -110,8 +111,11 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
     await saveMessage('user', text);
 
     // Immediate feedback that we are processing
+    setChatError(null);
     setLoading(true);
     setLoadingText("Analisando...");
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
     try {
       const response = await fetch("/api/chat", {
@@ -121,16 +125,38 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
           messages: newMessages.map(({ role, content }) => ({ role, content })),
           serviceId: selectedService?.code || selectedService?.id
         }),
+        signal: controller.signal,
       });
 
-      const data = await response.json();
-      if (data.content) {
-        await processAIResponse(data.content);
+      if (!response.ok) {
+        throw new Error("api_error");
       }
+
+      const data = await response.json();
+      if (!data?.content || typeof data.content !== "string") {
+        throw new Error("empty_response");
+      }
+
+      await processAIResponse(data.content);
     } catch (error) {
       console.error("Error fetching chat:", error);
+      setChatError(
+        "Desculpe, estamos com instabilidade no atendimento agora. Tente reiniciar o chat para continuar."
+      );
       setLoading(false);
+      setLoadingText("Digitando...");
+    } finally {
+      clearTimeout(timeoutId);
     }
+  };
+
+  const resetChatState = () => {
+    setLoading(false);
+    setLoadingText("Digitando...");
+    setHotLeadAction('idle');
+    setAppointment(null);
+    setChatFinished(false);
+    setChatError(null);
   };
 
   return {
@@ -138,10 +164,12 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
     setMessages,
     loading,
     loadingText,
+    chatError,
     hotLeadAction,
     appointment,
     chatFinished,
     sendMessage,
+    resetChatState,
     handleContactRequest,
     handleAppointmentBooked,
   };

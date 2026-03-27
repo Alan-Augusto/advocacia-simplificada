@@ -1,6 +1,8 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface ContactRequestModalProps {
   isOpen: boolean;
@@ -9,9 +11,16 @@ interface ContactRequestModalProps {
 }
 
 export default function ContactRequestModal({ isOpen, leadName, onClose }: ContactRequestModalProps) {
-  if (!isOpen) return null;
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
+
+  if (!isOpen || !mounted) return null;
+
+  const modalContent = (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
@@ -43,4 +52,6 @@ export default function ContactRequestModal({ isOpen, leadName, onClose }: Conta
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

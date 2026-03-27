@@ -11,6 +11,7 @@ interface ChatInterfaceProps {
   messages: Message[];
   loading: boolean;
   loadingText: string;
+  chatError: string | null;
   hotLeadAction: HotLeadAction;
   appointment: Appointment | null;
   chatFinished: boolean;
@@ -28,6 +29,7 @@ export default function ChatInterface({
   messages,
   loading,
   loadingText,
+  chatError,
   hotLeadAction,
   chatFinished,
   contactInfo,
@@ -119,7 +121,7 @@ export default function ChatInterface({
 
             <div
               className={`max-w-[85%] sm:max-w-[75%] md:max-w-[65%] rounded-2xl px-5 py-3.5 text-sm sm:text-base leading-relaxed shadow-sm ${msg.role === "user"
-                  ? "bg-primary-600 text-white rounded-br-none"
+                  ? "bg-primary-50 text-primary-800 rounded-br-none"
                   : "bg-slate-50 border border-slate-200 text-slate-700 rounded-bl-none"
                 }`}
             >
@@ -157,7 +159,23 @@ export default function ChatInterface({
 
       {/* Input Area or Final Action - Fixo em baixo */}
       <div className="flex-shrink-0 p-3 sm:p-4 border-t border-slate-200">
-        {hotLeadAction === 'options' ? (
+        {chatError ? (
+          <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4">
+            <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-amber-900 text-sm">
+              <div className="flex items-start gap-2">
+                <Icon icon="solar:danger-triangle-bold" width="18" className="mt-0.5 text-amber-600" />
+                <span>{chatError}</span>
+              </div>
+            </div>
+            <button
+              onClick={onRestart}
+              className="flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-md"
+            >
+              <Icon icon="solar:restart-square-linear" width="20" />
+              Reiniciar chat
+            </button>
+          </div>
+        ) : hotLeadAction === 'options' ? (
           <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4">
             <p className="text-sm text-center text-slate-600 font-medium">
               Entendemos seu caso. Como prefere prosseguir?
@@ -212,7 +230,7 @@ export default function ChatInterface({
                 className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all text-slate-900 placeholder:text-slate-400 resize-none min-h-[48px] max-h-[120px]"
                 disabled={loading}
                 autoFocus
-                style={{ height: 'auto', minHeight: '48px' }}
+                style={{ height: 'auto', minHeight: '48px', fontSize: '16px' }}
                 onInput={(e) => {
                   const target = e.target as HTMLTextAreaElement;
                   target.style.height = 'auto';

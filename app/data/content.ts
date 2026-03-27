@@ -459,7 +459,7 @@ export const FOOTER_CONTENT = {
   contact_title: "Contato",
   copyright:
     "© 2025 Dr. Luciano — Advocacia Trabalhista. Todos os direitos reservados.",
-  oab: "OAB/XX 000.000"
+  oab: "OAB - Regularizada!"
 };
 
 export const FOOTER_NAV_LINKS = [

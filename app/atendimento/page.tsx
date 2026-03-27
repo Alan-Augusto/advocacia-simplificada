@@ -21,10 +21,12 @@ export default function AtendimentoPage() {
     setMessages,
     loading,
     loadingText,
+    chatError,
     hotLeadAction,
     appointment,
     chatFinished,
     sendMessage,
+    resetChatState,
     handleContactRequest,
     handleAppointmentBooked,
   } = useChat(selectedService, leadId);
@@ -86,6 +88,7 @@ export default function AtendimentoPage() {
     setMessages([]);
     setLeadId(null);
     setLeadCode(null);
+    resetChatState();
     // We can keep contact info for convenience if they restart
   };
 
@@ -125,6 +128,7 @@ export default function AtendimentoPage() {
               messages={messages}
               loading={loading}
               loadingText={loadingText}
+              chatError={chatError}
               hotLeadAction={hotLeadAction}
               appointment={appointment}
               chatFinished={chatFinished}

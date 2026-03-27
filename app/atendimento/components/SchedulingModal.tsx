@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
+import { createPortal } from "react-dom";
 import type { Appointment, AvailabilitySlot, SlotsByDate } from "@/lib/types/database";
 
 interface SchedulingModalProps {
@@ -33,6 +34,7 @@ export default function SchedulingModal({
   onClose,
   onBooked,
 }: SchedulingModalProps) {
+  const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState<SchedulingStep>('calendar');
   const [slotsByDate, setSlotsByDate] = useState<SlotsByDate>({});
   const [loadingSlots, setLoadingSlots] = useState(true);
@@ -48,6 +50,11 @@ export default function SchedulingModal({
   const [calendarYear, setCalendarYear] = useState(today.getFullYear());
 
   useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
+
+  useEffect(() => {
     if (!isOpen) return;
     setLoadingSlots(true);
     fetch('/api/appointments/available?days=60')
@@ -57,7 +64,7 @@ export default function SchedulingModal({
       .finally(() => setLoadingSlots(false));
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const availableDates = new Set(Object.keys(slotsByDate));
 
@@ -141,7 +148,7 @@ export default function SchedulingModal({
   const daysInMonth = getDaysInMonth(calendarYear, calendarMonth);
   const firstDay = getFirstDayOfMonth(calendarYear, calendarMonth);
 
-  return (
+  const modalContent = (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
@@ -367,4 +374,6 @@ export default function SchedulingModal({
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

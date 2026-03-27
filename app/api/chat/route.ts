@@ -38,18 +38,26 @@ export async function POST(req: Request) {
         // Fallback to defaults if not found in database
         const baseContent = basePrompt?.content || "Você é uma assistente virtual especializada em direito trabalhista.";
         const serviceContent = servicePrompt?.content || "Atendimento geral.";
+
+        const promptGeral = `
+            # Instruções para Atendimento Virtual de Direito Trabalhista:
+            ${baseContent}
+
+            # Contexto do Serviço:
+            ${serviceContent}
+        `;
         
         // Construct the full system prompt
         const systemMessage = {
             role: "system" as const,
-            content: `${baseContent}\n\n${serviceContent}`
+            content: promptGeral
         };
 
         // Combine system prompt with conversation history
         const conversation = [systemMessage, ...messages];
 
         const completion = await client.chat.completions.create({
-            model: "llama-3.3-70b-versatile",
+            model: "meta-llama/llama-4-scout-17b-16e-instruct",
             messages: conversation as any[],
             temperature: 0.7,
             max_tokens: 1024,
