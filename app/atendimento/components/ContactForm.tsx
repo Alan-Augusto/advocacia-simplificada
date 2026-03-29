@@ -11,9 +11,71 @@ interface ContactFormProps {
 
 export default function ContactForm({ selectedService, initialData, onBack, onSubmit }: ContactFormProps) {
   const [contactInfo, setContactInfo] = useState<ContactInfo>(initialData || { name: "", phone: "" });
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+  const [touched, setTouched] = useState({ name: false, phone: false });
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    const ddd = digits.slice(0, 2);
+    const phone = digits.slice(2);
+
+    if (!ddd) return "";
+    if (!phone) return `(${ddd}`;
+    if (phone.length <= 4) return `(${ddd})${phone}`;
+    if (phone.length <= 8) return `(${ddd})${phone.slice(0, 4)}-${phone.slice(4)}`;
+    return `(${ddd})${phone.slice(0, 5)}-${phone.slice(5, 9)}`;
+  };
+
+  const phoneDigitsCount = contactInfo.phone.replace(/\D/g, "").length;
+  const isNameValid = contactInfo.name.trim().length > 0;
+  const isPhoneValid = /^(\([1-9]\d\)\d{4,5}-\d{4})$/.test(contactInfo.phone) && (phoneDigitsCount === 10 || phoneDigitsCount === 11);
+  const canSubmit = isNameValid && isPhoneValid;
+
+  const getNameError = () => {
+    if (!isNameValid) {
+      return "Nome obrigatorio.";
+    }
+
+    return "";
+  };
+
+  const getPhoneError = () => {
+    if (phoneDigitsCount === 0) {
+      return "WhatsApp obrigatorio.";
+    }
+
+    if (phoneDigitsCount < 10) {
+      return "Telefone incompleto. Informe DDD + numero com 8 ou 9 digitos.";
+    }
+
+    if (phoneDigitsCount === 10 && !/^\([1-9]\d\)\d{4}-\d{4}$/.test(contactInfo.phone)) {
+      return "Formato invalido. Use (xx)xxxx-xxxx.";
+    }
+
+    if (phoneDigitsCount === 11 && !/^\([1-9]\d\)\d{5}-\d{4}$/.test(contactInfo.phone)) {
+      return "Formato invalido. Use (xx)xxxxx-xxxx.";
+    }
+
+    if (!isPhoneValid) {
+      return "Telefone invalido.";
+    }
+
+    return "";
+  };
+
+  const showNameError = submitAttempted || touched.name;
+  const showPhoneError = submitAttempted || touched.phone;
+  const nameError = showNameError ? getNameError() : "";
+  const phoneError = showPhoneError ? getPhoneError() : "";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitAttempted(true);
+
+    if (!canSubmit) {
+      return;
+    }
+
     onSubmit(contactInfo);
   };
 
@@ -55,10 +117,14 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
                 type="text"
                 value={contactInfo.name}
                 onChange={(e) => setContactInfo({ ...contactInfo, name: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400"
+                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+                className={`w-full bg-white border rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 outline-none transition-all placeholder:text-slate-400 ${nameError ? "border-red-300 focus:ring-red-500/20 focus:border-red-500" : "border-slate-200 focus:ring-primary-500/20 focus:border-primary-500"}`}
                 placeholder="Ex: João Silva"
               />
             </div>
+            {nameError && (
+              <p className="text-xs text-red-600 ml-1">{nameError}</p>
+            )}
           </div>
 
           <div className="space-y-1.5">
@@ -71,11 +137,17 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
                 required
                 type="tel"
                 value={contactInfo.phone}
-                onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
-                className="w-full bg-white border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400"
+                onChange={(e) => setContactInfo({ ...contactInfo, phone: formatPhone(e.target.value) })}
+                onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
+                inputMode="numeric"
+                maxLength={14}
+                className={`w-full bg-white border rounded-xl py-3.5 pl-11 pr-4 text-slate-900 focus:ring-2 outline-none transition-all placeholder:text-slate-400 ${phoneError ? "border-red-300 focus:ring-red-500/20 focus:border-red-500" : "border-slate-200 focus:ring-primary-500/20 focus:border-primary-500"}`}
                 placeholder="Ex: (11) 99999-9999"
               />
             </div>
+            {phoneError && (
+              <p className="text-xs text-red-600 ml-1">{phoneError}</p>
+            )}
           </div>
 
           <div className="p-3 bg-white rounded-lg border border-slate-100">
@@ -91,7 +163,8 @@ export default function ContactForm({ selectedService, initialData, onBack, onSu
         <button
           type="submit"
           onClick={handleSubmit}
-          className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 rounded-xl shadow-lg shadow-primary-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          disabled={!canSubmit}
+          className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed text-white font-semibold py-4 rounded-xl shadow-lg shadow-primary-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
         >
           Iniciar Atendimento
           <Icon icon="solar:arrow-right-bold" width="20" />
