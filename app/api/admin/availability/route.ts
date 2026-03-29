@@ -106,7 +106,7 @@ function generateTimeSlots(
   date: string,
   startFrom: string,
   startUntil: string,
-  intervalMinutes: number,
+  breakMinutes: number,
   durationMinutes: number
 ): Array<{ date: string; start_time: string; duration_minutes: number }> {
   const slots = [];
@@ -116,12 +116,17 @@ function generateTimeSlots(
 
   let currentMinutes = startH * 60 + startM;
   const endMinutes = endH * 60 + endM;
+  const stepMinutes = durationMinutes + breakMinutes;
 
-  while (currentMinutes < endMinutes) {
+  if (stepMinutes <= 0 || durationMinutes <= 0) {
+    return slots;
+  }
+
+  while (currentMinutes + durationMinutes <= endMinutes) {
     const h = Math.floor(currentMinutes / 60).toString().padStart(2, '0');
     const m = (currentMinutes % 60).toString().padStart(2, '0');
     slots.push({ date, start_time: `${h}:${m}:00`, duration_minutes: durationMinutes });
-    currentMinutes += intervalMinutes;
+    currentMinutes += stepMinutes;
   }
 
   return slots;

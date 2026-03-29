@@ -12,6 +12,11 @@ interface AddSlotsModalProps {
 type Mode = 'single' | 'bulk';
 
 const DURATION_OPTIONS = [
+  { value: 5, label: '5 min' },
+  { value: 10, label: '10 min' },
+  { value: 15, label: '15 min' },
+  { value: 20, label: '20 min' },
+  { value: 25, label: '25 min' },
   { value: 30, label: '30 min' },
   { value: 45, label: '45 min' },
   { value: 60, label: '1 hora' },
@@ -19,24 +24,31 @@ const DURATION_OPTIONS = [
 ];
 
 const INTERVAL_OPTIONS = [
+  { value: 0, label: '0 min' },
+  { value: 5, label: '5 min' },
+  { value: 10, label: '10 min' },
   { value: 15, label: '15 min' },
+  { value: 20, label: '20 min' },
+  { value: 25, label: '25 min' },
   { value: 30, label: '30 min' },
   { value: 45, label: '45 min' },
   { value: 60, label: '1 hora' },
 ];
 
-function generatePreview(startFrom: string, startUntil: string, intervalMinutes: number): string[] {
-  if (!startFrom || !startUntil || !intervalMinutes) return [];
+function generatePreview(startFrom: string, startUntil: string, breakMinutes: number, durationMinutes: number): string[] {
+  if (!startFrom || !startUntil || !durationMinutes) return [];
   const [sh, sm] = startFrom.split(':').map(Number);
   const [eh, em] = startUntil.split(':').map(Number);
   let cur = sh * 60 + sm;
   const end = eh * 60 + em;
+  const step = durationMinutes + breakMinutes;
+  if (step <= 0) return [];
   const times: string[] = [];
-  while (cur < end) {
+  while (cur + durationMinutes <= end) {
     const h = Math.floor(cur / 60).toString().padStart(2, '0');
     const m = (cur % 60).toString().padStart(2, '0');
     times.push(`${h}:${m}`);
-    cur += intervalMinutes;
+    cur += step;
   }
   return times;
 }
@@ -59,8 +71,8 @@ export default function AddSlotsModal({ isOpen, onClose, onCreated }: AddSlotsMo
   const [bulkDuration, setBulkDuration] = useState(30);
 
   const preview = useMemo(
-    () => generatePreview(bulkStartFrom, bulkStartUntil, bulkInterval),
-    [bulkStartFrom, bulkStartUntil, bulkInterval]
+    () => generatePreview(bulkStartFrom, bulkStartUntil, bulkInterval, bulkDuration),
+    [bulkStartFrom, bulkStartUntil, bulkInterval, bulkDuration]
   );
 
   if (!isOpen) return null;
@@ -220,18 +232,6 @@ export default function AddSlotsModal({ isOpen, onClose, onCreated }: AddSlotsMo
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 mb-1">Intervalo</label>
-                  <select
-                    value={bulkInterval}
-                    onChange={(e) => setBulkInterval(Number(e.target.value))}
-                    className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
-                  >
-                    {INTERVAL_OPTIONS.map((o) => (
-                      <option key={o.value} value={o.value}>{o.label}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
                   <label className="block text-xs font-medium text-slate-700 mb-1">Duração</label>
                   <select
                     value={bulkDuration}
@@ -239,6 +239,18 @@ export default function AddSlotsModal({ isOpen, onClose, onCreated }: AddSlotsMo
                     className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                   >
                     {DURATION_OPTIONS.map((o) => (
+                      <option key={o.value} value={o.value}>{o.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">Intervalo após consulta</label>
+                  <select
+                    value={bulkInterval}
+                    onChange={(e) => setBulkInterval(Number(e.target.value))}
+                    className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                  >
+                    {INTERVAL_OPTIONS.map((o) => (
                       <option key={o.value} value={o.value}>{o.label}</option>
                     ))}
                   </select>
