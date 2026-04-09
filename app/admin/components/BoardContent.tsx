@@ -38,7 +38,7 @@ const STATUS_FILTERS: Array<{ value: LeadStatus | 'all'; label: string }> = [
 // ─── Component ───────────────────────────────────────────
 export default function BoardContent() {
   const [leads, setLeads] = useState<Lead[]>([]);
-  const [stats, setStats] = useState<LeadStats>({ total: 0, quente: 0, em_andamento: 0, conversao: 0 });
+  const [stats, setStats] = useState<LeadStats>({ total: 0, quente: 0, em_andamento: 0, conversao: 0, contact_requested: 0 });
   const [loading, setLoading] = useState(true);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
   const [filterStatus, setFilterStatus] = useState<LeadStatus | 'all'>('all');

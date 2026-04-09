@@ -85,7 +85,19 @@ export function useChat(selectedService: Service | null, leadId: string | null) 
   };
 
   const handleContactRequest = async () => {
-    // Lead stays 'quente' — Dr. Luciano sees it on the board and calls back
+    // Save the contact request flag to the database
+    if (leadId) {
+      try {
+        await fetch(`/api/leads/${leadId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contact_requested: true }),
+        });
+      } catch (error) {
+        console.error('Error saving contact request:', error);
+      }
+    }
+
     setHotLeadAction('contact_requested');
     setChatFinished(true);
   };

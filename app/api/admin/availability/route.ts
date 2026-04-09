@@ -109,7 +109,7 @@ function generateTimeSlots(
   breakMinutes: number,
   durationMinutes: number
 ): Array<{ date: string; start_time: string; duration_minutes: number }> {
-  const slots = [];
+  const slots: Array<{ date: string; start_time: string; duration_minutes: number }> = [];
 
   const [startH, startM] = startFrom.split(':').map(Number);
   const [endH, endM] = startUntil.split(':').map(Number);

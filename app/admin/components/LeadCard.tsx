@@ -95,6 +95,18 @@ export default function LeadCard({ lead, onClick }: LeadCardProps) {
           <Icon icon="solar:alt-arrow-right-linear" width="12" />
         </div>
       </div>
+
+      {/* Badge: Contact Requested */}
+      {lead.contact_requested_at && (
+        <div className="mt-2 pt-2 border-t border-slate-100">
+          <span className="inline-flex items-center gap-1 text-[10px] font-medium 
+                           text-emerald-700 bg-emerald-50 border border-emerald-200 
+                           px-1.5 py-0.5 rounded-full">
+            <Icon icon="solar:phone-calling-linear" width="10" />
+            Pediu contato
+          </span>
+        </div>
+      )}
     </button>
   );
 }

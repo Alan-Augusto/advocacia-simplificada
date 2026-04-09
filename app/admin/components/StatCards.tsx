@@ -25,7 +25,14 @@ export default function StatCards({ stats }: StatCardsProps) {
           </div>
           <span className="text-xs font-medium text-slate-600">Quentes</span>
         </div>
-        <p className="text-2xl font-semibold text-slate-900">{stats.quente}</p>
+        <div className="flex items-baseline gap-2">
+          <p className="text-2xl font-semibold text-slate-900">{stats.quente}</p>
+          {stats.contact_requested > 0 && (
+            <span className="text-[10px] font-medium text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200">
+              {stats.contact_requested} pedindo contato
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="bg-white rounded-lg border border-slate-200 p-3">

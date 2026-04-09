@@ -187,6 +187,18 @@ function KanbanCard({
         <span className="text-slate-600 line-clamp-1 flex-1">{lead.service_title}</span>
         <span className="text-slate-400 ml-2">{formatRelativeDate(lead.last_message_at)}</span>
       </div>
+
+      {/* Badge: Contact Requested */}
+      {lead.contact_requested_at && (
+        <div className="mt-2 pt-2 border-t border-slate-100">
+          <span className="inline-flex items-center gap-1 text-[10px] font-medium 
+                           text-emerald-700 bg-emerald-50 border border-emerald-200 
+                           px-1.5 py-0.5 rounded-full">
+            <Icon icon="solar:phone-calling-linear" width="10" />
+            Pediu contato
+          </span>
+        </div>
+      )}
     </div>
   );
 }

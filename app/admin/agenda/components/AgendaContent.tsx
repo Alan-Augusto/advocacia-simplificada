@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Icon } from '@iconify/react';
-import type { AvailabilitySlot, AppointmentWithSlot, AppointmentStatus } from '@/lib/types/database';
+import type { AvailabilitySlot, AppointmentWithSlot, AppointmentStatus, Lead } from '@/lib/types/database';
 import AgendaCalendar from './AgendaCalendar';
 import AppointmentCard from './AppointmentCard';
 import AddSlotsModal from './AddSlotsModal';
+import PendingContactCard from './PendingContactCard';
 
 type AppointmentFilter = 'upcoming' | 'today' | 'all' | 'cancelled';
 
@@ -21,8 +22,10 @@ export default function AgendaContent() {
 
   const [slots, setSlots] = useState<AvailabilitySlot[]>([]);
   const [appointments, setAppointments] = useState<AppointmentWithSlot[]>([]);
+  const [pendingContacts, setPendingContacts] = useState<Lead[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(true);
   const [loadingApps, setLoadingApps] = useState(true);
+  const [loadingContacts, setLoadingContacts] = useState(false);
   const [selectedDate, setSelectedDate] = useState(today);
   const [isAddSlotsOpen, setIsAddSlotsOpen] = useState(false);
   const [appointmentFilter, setAppointmentFilter] = useState<AppointmentFilter>('upcoming');
@@ -69,6 +72,27 @@ export default function AgendaContent() {
   useEffect(() => { fetchSlots(); }, [fetchSlots]);
   useEffect(() => { fetchAppointments(); }, [fetchAppointments]);
 
+  // ── Fetch pending contacts ──────────────────────────────
+  const fetchPendingContacts = useCallback(async () => {
+    setLoadingContacts(true);
+    try {
+      const res = await fetch('/api/leads?contact_pending=true&limit=50');
+      const data = await res.json();
+      // Sort by contact_requested_at ascending (oldest/most urgent first)
+      const sorted = (data.leads || []).filter((l: Lead) => l.contact_requested_at !== null)
+        .sort((a: Lead, b: Lead) => 
+          new Date(a.contact_requested_at!).getTime() - new Date(b.contact_requested_at!).getTime()
+        );
+      setPendingContacts(sorted);
+    } catch (err) {
+      console.error('Error fetching pending contacts:', err);
+    } finally {
+      setLoadingContacts(false);
+    }
+  }, []);
+
+  useEffect(() => { fetchPendingContacts(); }, [fetchPendingContacts]);
+
   // ── Slot actions ─────────────────────────────────────
   async function handleDeleteSlot(slotId: string) {
     setDeletingSlot(slotId);
@@ -92,6 +116,27 @@ export default function AgendaContent() {
     );
     // Re-fetch to reflect freed slot in calendar
     fetchSlots();
+  }
+
+  // ── Mark lead as contacted ─────────────────────────────
+  async function handleMarkAsContacted(leadId: string) {
+    try {
+      // Optimistic update
+      setPendingContacts((prev) => prev.filter((l) => l.id !== leadId));
+      
+      await fetch(`/api/leads/${leadId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'contatado' }),
+      });
+      
+      // Re-fetch to sync
+      fetchPendingContacts();
+    } catch (err) {
+      console.error('Error marking lead as contacted:', err);
+      // Revert optimistic update
+      fetchPendingContacts();
+    }
   }
 
   // ── Slots for selected date ───────────────────────────
@@ -205,6 +250,50 @@ export default function AgendaContent() {
                 );
               })}
             </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Middle Panel: Pending Contacts (only visible on wide screens) ── */}
+      <div className="hidden lg:flex lg:w-[280px] flex-shrink-0 flex-col bg-emerald-50/50 rounded-xl border border-emerald-200 overflow-hidden">
+        {/* Header */}
+        <div className="flex-shrink-0 px-3 pt-3 pb-2 border-b border-emerald-100">
+          <div className="flex items-center justify-between mb-1">
+            <h3 className="text-sm font-semibold text-emerald-900 flex items-center gap-1.5">
+              <Icon icon="solar:phone-calling-bold" width="16" className="text-emerald-600" />
+              Pendentes
+            </h3>
+            {pendingContacts.length > 0 && (
+              <span className="text-[10px] font-bold bg-emerald-600 text-white px-2 py-0.5 rounded-full">
+                {pendingContacts.length}
+              </span>
+            )}
+          </div>
+          <p className="text-[10px] text-emerald-600">
+            Leads que solicitaram contato
+          </p>
+        </div>
+
+        {/* Pending contacts list */}
+        <div className="flex-1 overflow-y-auto p-3 space-y-2">
+          {loadingContacts ? (
+            <div className="flex items-center justify-center py-8">
+              <Icon icon="solar:refresh-linear" className="animate-spin text-emerald-500" width="20" />
+            </div>
+          ) : pendingContacts.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-8 text-center">
+              <Icon icon="solar:check-circle-linear" className="text-emerald-400 mb-2" width="28" />
+              <p className="text-xs text-emerald-600 font-medium">Tudo em dia!</p>
+              <p className="text-[10px] text-emerald-500 mt-0.5">Nenhum contato pendente</p>
+            </div>
+          ) : (
+            pendingContacts.map((lead) => (
+              <PendingContactCard
+                key={lead.id}
+                lead={lead}
+                onMarkContacted={handleMarkAsContacted}
+              />
+            ))
           )}
         </div>
       </div>

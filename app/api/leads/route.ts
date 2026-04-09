@@ -75,6 +75,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status') as LeadStatus | null;
     const search = searchParams.get('search');
+    const contactPending = searchParams.get('contact_pending') === 'true';
     const limit = parseInt(searchParams.get('limit') || '50');
     const offset = parseInt(searchParams.get('offset') || '0');
 
@@ -89,6 +90,11 @@ export async function GET(request: NextRequest) {
     // Apply filters
     if (status) {
       query = query.eq('status', status);
+    }
+
+    // Contact pending filter: leads that actively requested contact
+    if (contactPending) {
+      query = query.not('contact_requested_at', 'is', null);
     }
 
     if (search) {
@@ -113,13 +119,14 @@ export async function GET(request: NextRequest) {
     // Get stats (excluding deleted leads)
     const { data: statsData } = await supabase
       .from('leads')
-      .select('status')
+      .select('status, contact_requested_at')
       .is('deleted_at', null);
 
     const stats = {
       total: count || 0,
       quente: statsData?.filter((l) => l.status === 'quente').length || 0,
       em_andamento: statsData?.filter((l) => l.status === 'em_andamento').length || 0,
+      contact_requested: statsData?.filter((l) => l.contact_requested_at !== null).length || 0,
       conversao: statsData?.length
         ? Math.round(
             ((statsData.filter((l) => l.status === 'fechado').length || 0) / statsData.length) *

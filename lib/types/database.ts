@@ -19,6 +19,7 @@ export interface Lead {
   service_id: string;
   service_title: string;
   status: LeadStatus;
+  contact_requested_at: string | null;
   created_at: string;
   updated_at: string;
   last_message_at: string;
@@ -75,6 +76,7 @@ export interface LeadStats {
   quente: number;
   em_andamento: number;
   conversao: number;
+  contact_requested: number;
 }
 
 // ─── Scheduling ───────────────────────────────────────────

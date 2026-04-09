@@ -9,20 +9,34 @@ export async function PATCH(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { status } = body as { status: LeadStatus };
+    const { status, contact_requested } = body as { 
+      status: LeadStatus;
+      contact_requested?: boolean;
+    };
 
-    if (!status) {
+    const supabase = createClient();
+
+    // Build update payload
+    const updates: Record<string, unknown> = {};
+
+    if (status) {
+      updates.status = status;
+    }
+
+    if (contact_requested !== undefined) {
+      updates.contact_requested_at = contact_requested ? new Date().toISOString() : null;
+    }
+
+    if (Object.keys(updates).length === 0) {
       return NextResponse.json(
-        { error: 'Status is required' },
+        { error: 'No fields to update' },
         { status: 400 }
       );
     }
 
-    const supabase = createClient();
-
     const { data: lead, error } = await supabase
       .from('leads')
-      .update({ status })
+      .update(updates)
       .eq('id', id)
       .select()
       .single();

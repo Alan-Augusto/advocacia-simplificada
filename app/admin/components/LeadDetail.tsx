@@ -140,6 +140,15 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
               <span className="text-xs font-mono text-slate-400 bg-slate-50 px-2 py-1 rounded-md">
                 {formatLeadCode(lead.code)}
               </span>
+              {/* Badge: Contact Requested */}
+              {lead.contact_requested_at && (
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium 
+                                 text-emerald-700 bg-emerald-50 border border-emerald-200 
+                                 px-2 py-0.5 rounded-full">
+                  <Icon icon="solar:phone-calling-linear" width="12" />
+                  Solicitou contato
+                </span>
+              )}
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
               <button
@@ -158,6 +167,13 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
                 <Icon icon="solar:calendar-linear" width="14" />
                 {formatDate(lead.created_at)}
               </div>
+              {/* Contact requested timestamp */}
+              {lead.contact_requested_at && (
+                <div className="flex items-center gap-1 text-emerald-600">
+                  <Icon icon="solar:clock-circle-linear" width="14" />
+                  <span>Em {formatDate(lead.contact_requested_at)}</span>
+                </div>
+              )}
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -199,6 +215,22 @@ export default function LeadDetail({ lead, onClose, onUpdate }: LeadDetailProps)
               );
             })}
           </div>
+
+          {/* Quick Action: Mark as Contacted (only if contact was requested) */}
+          {lead.contact_requested_at && lead.status !== 'contatado' && (
+            <div className="mt-3 pt-3 border-t border-slate-100">
+              <button
+                onClick={() => handleStatusChange('contatado')}
+                disabled={updatingStatus}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium
+                           bg-emerald-600 hover:bg-emerald-700 text-white transition-all 
+                           disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Icon icon="solar:phone-check-linear" width="14" />
+                Marcar como contatado
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Messages */}
