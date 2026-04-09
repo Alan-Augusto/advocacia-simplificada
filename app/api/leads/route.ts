@@ -92,9 +92,9 @@ export async function GET(request: NextRequest) {
       query = query.eq('status', status);
     }
 
-    // Contact pending filter: leads that actively requested contact
+    // Contact pending filter: leads that actively requested contact AND are still 'quente'
     if (contactPending) {
-      query = query.not('contact_requested_at', 'is', null);
+      query = query.not('contact_requested_at', 'is', null).eq('status', 'quente');
     }
 
     if (search) {
