@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/client';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function PATCH(
   request: NextRequest,
@@ -14,7 +14,7 @@ export async function PATCH(
       return NextResponse.json({ error: 'Nothing to update' }, { status: 400 });
     }
 
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     // Fetch the slot to check if it's booked
     const { data: slot, error: fetchError } = await supabase
@@ -76,7 +76,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     // Only allow deletion of unbooked slots
     const { data: slot, error: fetchError } = await supabase

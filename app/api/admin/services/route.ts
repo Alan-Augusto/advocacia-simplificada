@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/client';
+import { createAdminClient } from '@/lib/supabase/admin';
 import type { Service } from '@/lib/types/database';
 
 export async function GET() {
   try {
-    const supabase = createClient();
-
+    const supabase = createAdminClient();
     const { data: services, error } = await supabase
       .from('services')
       .select('*')
@@ -50,7 +49,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     const { data: service, error } = await supabase
       .from('services')
@@ -98,7 +97,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     // Update order for each service
     const promises = services.map((service) =>

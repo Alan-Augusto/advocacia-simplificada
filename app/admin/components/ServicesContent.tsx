@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 import type { Service } from '@/lib/types/database';
 import ServiceForm from '../services/components/ServiceForm';
+import ConfirmModal from './ConfirmModal';
 
 export default function ServicesContent() {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingService, setEditingService] = useState<Service | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [deletingService, setDeletingService] = useState<Service | null>(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   const fetchServices = async () => {
     try {
@@ -56,6 +59,31 @@ export default function ServicesContent() {
     fetchServices();
   };
 
+  const handleDeleteClick = (service: Service) => {
+    setDeletingService(service);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!deletingService) return;
+
+    setDeleteLoading(true);
+    try {
+      const response = await fetch(`/api/admin/services/${deletingService.id}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        fetchServices();
+        setDeletingService(null);
+      } else {
+        console.error('Failed to delete service');
+      }
+    } catch (error) {
+      console.error('Error deleting service:', error);
+    } finally {
+      setDeleteLoading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
@@ -88,6 +116,20 @@ export default function ServicesContent() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
+      {/* Top action bar */}
+      <div className="flex justify-between items-center mb-4 flex-shrink-0">
+        <h2 className="text-sm font-medium text-slate-500">
+          {services.length} {services.length === 1 ? 'serviço cadastrado' : 'serviços cadastrados'}
+        </h2>
+        <button
+          onClick={handleNew}
+          className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all shadow-sm text-sm"
+        >
+          <Icon icon="solar:add-circle-linear" width="18" />
+          Novo Serviço
+        </button>
+      </div>
+
       <div className="flex-1 overflow-y-auto min-h-0 pr-1 -mr-1">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-4">
           {services.map((service) => (
@@ -148,13 +190,22 @@ export default function ServicesContent() {
               </div>
 
               {/* Actions */}
-              <button
-                onClick={() => handleEdit(service)}
-                className="w-full bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all border border-slate-200"
-              >
-                <Icon icon="solar:pen-linear" width="16" />
-                Editar Serviço
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => handleEdit(service)}
+                  className="flex-1 bg-slate-50 hover:bg-slate-100 text-slate-700 px-3 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all border border-slate-200"
+                >
+                  <Icon icon="solar:pen-linear" width="16" />
+                  Editar Serviço
+                </button>
+                <button
+                  onClick={() => handleDeleteClick(service)}
+                  className="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all border border-rose-200"
+                  title="Excluir Serviço"
+                >
+                  <Icon icon="solar:trash-bin-trash-linear" width="16" />
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -162,6 +213,19 @@ export default function ServicesContent() {
 
       {/* Form Modal */}
       {showForm && <ServiceForm service={editingService} onClose={handleFormClose} />}
+
+      {/* Confirm Delete Modal */}
+      <ConfirmModal
+        isOpen={!!deletingService}
+        title="Excluir Serviço?"
+        description={`Tem certeza que deseja excluir o serviço "${deletingService?.title}"? Esta ação também apagará o prompt da IA associado e não poderá ser desfeita.`}
+        confirmLabel="Excluir"
+        cancelLabel="Cancelar"
+        variant="danger"
+        loading={deleteLoading}
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setDeletingService(null)}
+      />
     </div>
   );
 }

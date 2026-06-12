@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/client';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function GET(request: NextRequest) {
   try {
@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const date = searchParams.get('date');
     const upcoming = searchParams.get('upcoming') === 'true';
 
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     let query = supabase
       .from('appointments')

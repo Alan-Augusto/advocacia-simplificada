@@ -101,6 +101,20 @@ export default function BlogContent() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
+      {/* Top action bar */}
+      <div className="flex justify-between items-center mb-4 flex-shrink-0">
+        <h2 className="text-sm font-medium text-slate-500">
+          {posts.length} {posts.length === 1 ? 'postagem cadastrada' : 'postagens cadastradas'}
+        </h2>
+        <button
+          onClick={handleNew}
+          className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all shadow-sm text-sm"
+        >
+          <Icon icon="solar:add-circle-linear" width="18" />
+          Nova Postagem
+        </button>
+      </div>
+
       <div className="flex-1 overflow-y-auto min-h-0 pr-1 -mr-1">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-4">
           {posts.map((post) => {

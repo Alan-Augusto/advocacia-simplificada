@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/client';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function GET() {
   try {
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     const { data: settings, error } = await supabase
       .from('settings')
@@ -45,7 +45,7 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    const supabase = createClient();
+    const supabase = createAdminClient();
 
     // Update each setting
     const promises = Object.entries(settings).map(([key, value]) =>
