@@ -16,8 +16,9 @@ Sistema de CRM integrado com IA para captura e qualificação de leads. O sistem
 Crie o arquivo `.env.local` na raiz do projeto:
 
 ```bash
-# Groq AI API Key
+# Groq AI
 GROQ_API_KEY=seu_groq_api_key_aqui
+GROQ_MODEL=qwen/qwen3.8-27b
 
 # Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=https://seu-projeto.supabase.co

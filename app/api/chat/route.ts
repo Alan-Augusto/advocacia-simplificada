@@ -57,7 +57,7 @@ export async function POST(req: Request) {
         const conversation = [systemMessage, ...messages];
 
         const completion = await client.chat.completions.create({
-            model: "meta-llama/llama-4-scout-17b-16e-instruct",
+            model: process.env.GROQ_MODEL || "qwen/qwen3.8-27b",
             messages: conversation as any[],
             temperature: 0.7,
             max_tokens: 1024,
