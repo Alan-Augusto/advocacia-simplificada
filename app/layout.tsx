@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dr. Luciano | Advocacia Trabalhista Especializada",
-  description: "Advogado trabalhista especializado na defesa dos direitos do trabalhador. Atendimento humanizado, estratégia personalizada e compromisso com resultados. Consulta gratuita.",
+  description: "Advogado trabalhista especializado na defesa dos direitos do trabalhador. Atendimento humanizado, estratégia personalizada e compromisso com resultados.",
 };
 
 export default function RootLayout({

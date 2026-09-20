@@ -116,7 +116,7 @@ export default async function BlogPostPage(
               Precisa de ajuda?
             </h3>
             <p className="text-slate-500 mb-6 text-sm">
-              Nossa equipe pode analisar o seu caso gratuitamente.
+              Nossa equipe pode analisar o seu caso!
             </p>
             <a
               href="/atendimento"

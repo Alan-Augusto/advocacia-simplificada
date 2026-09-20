@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import Groq from "groq-sdk";
+import Cerebras from "@cerebras/cerebras_cloud_sdk";
 import { createClient } from "@/lib/supabase/client";
 
-// Initialize Groq client
-const client = new Groq({
-    apiKey: process.env.GROQ_API_KEY || "dummy_key", 
+// Initialize Cerebras client
+const client = new Cerebras({
+    apiKey: process.env.CEREBRAS_API_KEY || "dummy_key",
 });
 
 export async function POST(req: Request) {
@@ -57,11 +57,11 @@ export async function POST(req: Request) {
         const conversation = [systemMessage, ...messages];
 
         const completion = await client.chat.completions.create({
-            model: process.env.GROQ_MODEL || "qwen/qwen3.8-27b",
+            model: process.env.CEREBRAS_MODEL || "gpt-oss-120b",
             messages: conversation as any[],
             temperature: 0.7,
             max_tokens: 1024,
-        });
+        }) as any;
 
         const reply = completion.choices[0]?.message?.content || "Desculpe, não consegui processar sua solicitação no momento.";
 

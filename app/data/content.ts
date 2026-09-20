@@ -12,7 +12,7 @@ export const HERO_CONTENT = {
 export const TRUST_BAR = [
   { icon: "solar:shield-check-linear", text: "OAB Regular" },
   { icon: "solar:lock-linear", text: "Sigilo Total" },
-  { icon: "solar:chat-round-check-linear", text: "Consulta Gratuita" },
+  { icon: "solar:chat-round-check-linear", text: "Triagem Facilitada" },
   { icon: "solar:star-bold", text: "5/5 Avaliações", color: "#f59e0b" },
   { icon: "solar:smartphone-linear", text: "Atendimento Online" },
 ];
@@ -305,10 +305,6 @@ export const FAQS = [
   {
     question: "Sofro assédio moral no trabalho. Tenho direito a indenização?",
     answer: "Sim! Humilhações, perseguições, tratamento rigoroso excessivo, isolamento e outras condutas abusivas configuram assédio moral e geram direito a indenização por dano moral. Além disso, essa situação pode embasar um pedido de rescisão indireta."
-  },
-  {
-    question: "A consulta inicial é realmente gratuita?",
-    answer: "Sim, a primeira consulta é totalmente gratuita e sem compromisso. Nela, analisamos sua situação, identificamos possíveis direitos e explicamos como seria a atuação no seu caso, com total transparência sobre prazos, custos e expectativas."
   }
 ];
 
@@ -398,7 +394,7 @@ export const BLOG_POSTS = [
 
 export const HEADER_CONTENT = {
   brand: "Dr. Luciano",
-  cta: "Consulta Gratuita",
+  cta: "Iniciar atendimento",
   mobile_menu_label: "Abrir menu"
 };
 
@@ -445,10 +441,10 @@ export const CTA_CONTENT = {
   title_prefix: "Não deixe seus direitos",
   title_suffix: "passarem em branco.",
   description:
-    "O prazo para buscar seus direitos é limitado. Entre em contato agora para uma consulta gratuita e descubra o que você pode receber.",
+    "O prazo para buscar seus direitos é limitado. Entre em contato agora e descubra o que você pode receber.",
   cta_primary: "Iniciar Atendimento",
   footnote:
-    "Consulta inicial gratuita · Sigilo garantido · Atendimento online"
+    "Triagem Facilitada · Sigilo garantido · Atendimento online"
 };
 
 export const FOOTER_CONTENT = {
